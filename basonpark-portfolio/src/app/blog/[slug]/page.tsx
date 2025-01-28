@@ -5,6 +5,24 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+// Define a type for the params object
+type Params = {
+  slug: string;
+};
+
+// Define a type that includes Promise-like properties
+type PromiseLike<T> = T & {
+  then: (onfulfilled: (value: T) => any) => any;
+  catch: (onrejected: (reason: any) => any) => any;
+  finally: (onfinally: () => void) => any;
+  [Symbol.toStringTag]: string;
+};
+
+// Define a type for the page props
+type PageProps = {
+  params: PromiseLike<Params>;
+};
+
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
   return posts.map((post) => ({ slug: post.slug }));
@@ -12,12 +30,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: {
-    slug: string;
-  };
-}): Promise<Metadata | undefined> {
-  let post = await getPost(params.slug);
+}: PageProps): Promise<Metadata | undefined> {
+  // Resolve the Promise-like params
+  const resolvedParams = await Promise.resolve(params);
+  let post = await getPost(resolvedParams.slug);
 
   let {
     title,
@@ -35,7 +51,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${DATA.url}/blog/${post.slug}`,
+      url: `${DATA.url}/blog/${resolvedParams.slug}`,
       images: [
         {
           url: ogImage,
@@ -51,14 +67,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}) {
-  let post = await getPost(params.slug);
+export default async function Blog({ params }: PageProps) {
+  // Resolve the Promise-like params
+  const resolvedParams = await Promise.resolve(params);
+  let post = await getPost(resolvedParams.slug);
 
   if (!post) {
     notFound();
@@ -80,7 +92,7 @@ export default async function Blog({
             image: post.metadata.image
               ? `${DATA.url}${post.metadata.image}`
               : `${DATA.url}/og?title=${post.metadata.title}`,
-            url: `${DATA.url}/blog/${post.slug}`,
+            url: `${DATA.url}/blog/${resolvedParams.slug}`,
             author: {
               "@type": "Person",
               name: DATA.name,
