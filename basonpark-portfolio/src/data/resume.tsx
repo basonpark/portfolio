@@ -2,23 +2,24 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
+  name: "Bason Park",
+  initials: "BP",
   url: "https://dillion.io",
-  location: "San Francisco, CA",
+  location: "Seoul, South Korea",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
+    "It's like Jason with a B. Words like AI, blockchain, and art turn me on.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
-  avatarUrl: "/me.png",
+    "I was born in Japan, raised in South Korea, and educated in the States. I focused on computer science and business management at Columbia University. After graduating in 2021, I decided to explore some other cultures, especially those in South America and Europe. Now I am building projects in AI and blockchain to connect the world.",
+  avatarUrl: "/basonpark.png",
+
   skills: [
+    "Solidity",
     "React",
     "Next.js",
     "Typescript",
     "Node.js",
     "Python",
-    "Go",
     "Postgres",
     "Docker",
     "Kubernetes",
@@ -30,7 +31,7 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
+    email: "basonpark@gmail.com",
     tel: "+123456789",
     social: {
       GitHub: {
@@ -72,16 +73,16 @@ export const DATA = {
 
   work: [
     {
-      company: "Atomic Finance",
-      href: "https://atomic.finance",
+      company: "Crimson Education",
+      href: "https://www.crimsoneducation.org/",
       badges: [],
-      location: "Remote",
-      title: "Bitcoin Protocol Engineer",
-      logoUrl: "/atomic.png",
-      start: "May 2021",
-      end: "Oct 2022",
+      location: "New York, NY",
+      title: "Strategy Consultant",
+      logoUrl: "/crimsonedu.png",
+      start: "July 2018",
+      end: "March 2024",
       description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+        "As a Strategy Consultant at Crimson Education, I leverage my extensive technical expertise to empower top-performing high school students in their academic and career pursuits.",
     },
     {
       company: "Shopify",
@@ -146,36 +147,20 @@ export const DATA = {
   ],
   education: [
     {
-      school: "Buildspace",
-      href: "https://buildspace.so",
-      degree: "s3, s4, sf1, s5",
-      logoUrl: "/buildspace.jpg",
-      start: "2023",
-      end: "2024",
+      school: "Columbia University",
+      href: "https://www.columbia.edu/",
+      degree: "Bachelor's Degree of Computer Science and Business Management",
+      logoUrl: "/columbialogo.png",
+      start: "2015",
+      end: "2021",
     },
     {
-      school: "University of Waterloo",
+      school: "Seoul International School",
       href: "https://uwaterloo.ca",
-      degree: "Bachelor's Degree of Computer Science (BCS)",
+      degree: "High School Diploma",
       logoUrl: "/waterloo.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "Wilfrid Laurier University",
-      href: "https://wlu.ca",
-      degree: "Bachelor's Degree of Business Administration (BBA)",
-      logoUrl: "/laurier.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "International Baccalaureate",
-      href: "https://ibo.org",
-      degree: "IB Diploma",
-      logoUrl: "/ib.png",
-      start: "2012",
-      end: "2016",
+      start: "2002",
+      end: "2015",
     },
   ],
   projects: [
