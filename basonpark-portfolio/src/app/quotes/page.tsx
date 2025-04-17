@@ -10,7 +10,8 @@ export default function QuotesPage() {
           <Card key={item}>
             <CardContent className="pt-6">
               <blockquote className="text-lg italic border-l-4 pl-4">
-                "This is placeholder quote number {item}. It's meant to inspire."
+                {/* Escape quotes and apostrophe */}
+                &quot;This is placeholder quote number {item}. It&apos;s meant to inspire.&quot;
                 <footer className="mt-2 text-sm text-muted-foreground">- Anonymous {item}</footer>
               </blockquote>
             </CardContent>
