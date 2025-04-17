@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "It's like Jason with a B. Words like AI, blockchain, and art turn me on.",
   summary:
-    "I was born in Japan, raised in South Korea, and educated in the States. I focused on computer science and business management at Columbia University. After graduating in 2021, I decided to explore some other cultures, especially those in South America and Europe. Now I am building projects in AI and blockchain to connect the world.",
+    "I was born in Japan, raised in South Korea, and educated in the US. I focused on computer science and business management at Columbia University. After graduating in 2021, I decided to explore some other cultures, especially those in South America and Europe. Now I am pursuing projects in AI and blockchain to enhance the quality of our lives.",
   avatarUrl: "/basonpark.png",
 
   skills: [
@@ -36,22 +36,15 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/basonpark",
         icon: Icons.github,
 
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "www.linkedin.com/in/basonpark",
         icon: Icons.linkedin,
-
-        navbar: true,
-      },
-      X: {
-        name: "X",
-        url: "https://dub.sh/dillion-twitter",
-        icon: Icons.x,
 
         navbar: true,
       },
@@ -85,64 +78,108 @@ export const DATA = {
         "As a Strategy Consultant at Crimson Education, I leverage my extensive technical expertise to empower top-performing high school students in their academic and career pursuits.",
     },
     {
-      company: "Shopify",
+      company: "Mount Sinai Health System",
       badges: [],
       href: "https://shopify.com",
       location: "Remote",
       title: "Software Engineer",
-      logoUrl: "/shopify.svg",
-      start: "January 2021",
-      end: "April 2021",
+      logoUrl: "/mountsinai.png",
+      start: "April 2020",
+      end: "October 2020",
       description:
         "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
     },
     {
-      company: "Nvidia",
+      company: "Lucas Brand Equity",
       href: "https://nvidia.com/",
       badges: [],
       location: "Santa Clara, CA",
-      title: "Software Engineer",
-      logoUrl: "/nvidia.png",
-      start: "January 2020",
-      end: "April 2020",
+      title: "Private Equity Analyst",
+      logoUrl: "/lbequity.png",
+      start: "June 2019",
+      end: "September 2019",
       description:
-        "Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
+        "LB Equity is a private equity firm focusing in the beauty, wellness, and personal care space.",
     },
     {
-      company: "Splunk",
+      company: "Astorian",
       href: "https://splunk.com",
       badges: [],
       location: "San Jose, CA",
       title: "Software Engineer",
-      logoUrl: "/splunk.svg",
-      start: "January 2019",
-      end: "April 2019",
+      logoUrl: "/astorian.png",
+      start: "September 2018",
+      end: "November 2018",
       description:
         "Co-developed a prototype iOS app with another intern in Swift for the new Splunk Phantom security orchestration product (later publicly demoed and launched at .conf annual conference in Las Vegas). Implemented a realtime service for the iOS app in Django (Python) and C++; serialized data using protobufs transmitted over gRPC resulting in an approximate 500% increase in data throughput.",
     },
     {
-      company: "Lime",
+      company: "United Nations Mission in South Sudan",
       href: "https://li.me/",
       badges: [],
-      location: "San Francisco, CA",
-      title: "Software Engineer",
-      logoUrl: "/lime.svg",
-      start: "January 2018",
-      end: "April 2018",
+      location: "Juba, South Sudan",
+      title: "Security Engineer, UN Peacekeeper",
+      logoUrl: "/unmiss.png",
+      start: "July 2017",
+      end: "March 2028",
       description:
-        "Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
+        "ROK Horizontal Military Engineering Company (HMEC) under UNMISS fosters long-term statebuilding, conflict mitigation, and civilian protection in South Sudan.\n\n12-week sessions at Hanbit Vocational School focusing on teaching welding, carpentry, construction, and electricity to Dinka, Nuer, and Murle tribe members",
     },
     {
-      company: "Mitre Media",
+      company: "Republic of Korea Army",
       href: "https://mitremedia.com/",
       badges: [],
-      location: "Toronto, ON",
-      title: "Software Engineer",
-      logoUrl: "/mitremedia.png",
-      start: "May 2017",
-      end: "August 2017",
+      location: "Seoul, South Korea",
+      title: "Network Operations Officer, Sergeant",
+      logoUrl: "/rok.png",
+      start: "October 2016",
+      end: "July 2018",
       description:
         "Designed and implemented a robust password encryption and browser cookie storage system in Ruby on Rails. Leveraged the Yahoo finance API to develop the dividend.com equity screener",
+    },
+  ],
+  certifications: [
+    {
+      name: "Advanced Solidity Developer",
+      organization: "Metana Bootcamp",
+      href: "",
+      logoUrl: "/metana.png",
+      date: "April 2025",
+    },
+    {
+      name: "Full Stack Developer ",
+      organization: "Metana Bootcamp",
+      href: "",
+      logoUrl: "/metana.png",
+      date: "April 2025",
+    },
+    {
+      name: "AWS Certified SysOps Administrator - Associate",
+      organization: "Amazon Web Services",
+      href: "https://www.credly.com/badges/a9926059-0b90-42cb-9e34-535a8582642e",
+      logoUrl: "/aws.png",
+      date: "January 2025",
+    },
+    {
+      name: "AWS Certified Developer - Associate",
+      organization: "Amazon Web Services",
+      href: "https://www.credly.com/badges/0bf0ae95-8aa6-4270-8ff7-a1cc7ec019cc/linked_in_profile",
+      logoUrl: "/aws.png",
+      date: "November 2024",
+    },
+    {
+      name: "AWS Certified Solutions Architect - Associate",
+      organization: "Amazon Web Services",
+      href: "https://www.credly.com/badges/42f193e7-4053-48cb-b377-579b8702c0f5/linked_in_profile",
+      logoUrl: "/aws.png",
+      date: "October 2024",
+    },
+    {
+      name: "Spanish DELE Level C1",
+      organization: "Instituto Cervantes",
+      href: "https://csv.cervantes.es/?csv=M4VFA65YNGE2RDCWF21LCEW8M2",
+      logoUrl: "/instituto.png",
+      date: "February 2025",
     },
   ],
   education: [
@@ -165,8 +202,8 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Chat Collect",
-      href: "https://chatcollect.com",
+      title: "Monkey Mind",
+      href: "https://monkeymind.app",
       dates: "Jan 2024 - Feb 2024",
       active: true,
       description:
@@ -193,17 +230,16 @@ export const DATA = {
         "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
     },
     {
-      title: "Magic UI",
+      title: "Prophit",
       href: "https://magicui.design",
       dates: "June 2023 - Present",
       active: true,
-      description:
-        "Designed, developed and sold animated UI components for developers.",
+      description: "Prediction market using Chainlink Oracle",
       technologies: [
         "Next.js",
         "Typescript",
         "PostgreSQL",
-        "Prisma",
+        "Solidity",
         "TailwindCSS",
         "Stripe",
         "Shadcn UI",
@@ -225,7 +261,7 @@ export const DATA = {
       video: "https://cdn.magicui.design/bento-grid.mp4",
     },
     {
-      title: "llm.report",
+      title: "Defi Stablecoin",
       href: "https://llm.report",
       dates: "April 2023 - September 2023",
       active: true,
@@ -258,7 +294,7 @@ export const DATA = {
       video: "https://cdn.llm.report/openai-demo.mp4",
     },
     {
-      title: "Automatic Chat",
+      title: "AI Smart Contract Auditor",
       href: "https://automatic.chat",
       dates: "April 2023 - March 2024",
       active: true,
@@ -307,7 +343,6 @@ export const DATA = {
         "Developed a mobile application which delivers university campus wide events in real time to all students.",
       image:
         "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
       links: [],
     },
     {
@@ -672,4 +707,4 @@ export const DATA = {
       ],
     },
   ],
-} as const;
+};

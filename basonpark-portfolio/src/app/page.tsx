@@ -15,8 +15,8 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 flex justify-between">
+        <div className="mx-auto w-full max-w-4xl space-y-8">
+          <div className="gap-6 flex items-center">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
@@ -31,7 +31,7 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
+              <Avatar className="size-40 border">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
@@ -41,10 +41,10 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">About</h2>
+          <h2 className="text-3xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground dark:prose-invert">
             {DATA.summary}
           </Markdown>
         </BlurFade>
@@ -152,6 +152,27 @@ export default function Page() {
           ))}
         </div>
       </section>
+      <section id="certifications">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 6}>
+            <h2 className="text-xl font-bold">Certifications</h2>
+          </BlurFade>
+          {DATA.certifications.map((cert, id) => (
+            <BlurFade key={cert.name} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
+              <ResumeCard
+                key={cert.name}
+                href={cert.href}
+                logoUrl={cert.logoUrl}
+                altText={cert.name}
+                title={cert.name}
+                subtitle={cert.organization}
+                period={cert.date}
+              />
+            </BlurFade>
+          ))}
+        </div>
+      </section>
+
       {/* <section id="hackathons">
         <div className="space-y-12 w-full py-12">
         <BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -208,13 +229,12 @@ export default function Page() {
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{" "}
                 <Link
-                  href={DATA.contact.social.X.url}
+                  href={DATA.contact.social.LinkedIn.url}
                   className="text-blue-500 hover:underline"
                 >
-                  with a direct question on twitter
+                  with a direct question
                 </Link>{" "}
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
+                and I&apos;ll respond whenever I can.
               </p>
             </div>
           </BlurFade>
