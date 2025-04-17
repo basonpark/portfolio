@@ -16,7 +16,7 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-4xl space-y-8">
-          <div className="gap-6 flex items-center">
+          <div className="gap-6 flex items-center mt-14">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
@@ -210,7 +210,7 @@ export default function Page() {
                     image={project.image}
                     links={project.links}
                   />
-                </BlurFade>
+                </HackathonCard>
               ))}
             </ul>
           </BlurFade>
