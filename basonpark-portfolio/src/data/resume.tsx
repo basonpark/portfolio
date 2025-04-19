@@ -259,8 +259,8 @@ export const DATA = {
       video: "https://cdn.magicui.design/bento-grid.mp4",
     },
     {
-      title: "Defi Stablecoin",
-      href: "https://llm.report",
+      title: "Lumina Finance",
+      href: "https://defi-stablecoin-yield.vercel.app/",
       active: true,
       description:
         "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
@@ -278,12 +278,12 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://llm.report",
+          href: "https://defi-stablecoin-yield.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
+          href: "https://github.com/basonpark/defi-stablecoin-yield",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -320,6 +320,32 @@ export const DATA = {
     },
     {
       title: "Ether Guru",
+      href: "https://ether-guru-eta.vercel.app/",
+      active: true,
+      description:
+        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "Prisma",
+        "TailwindCSS",
+        "Stripe",
+        "Shadcn UI",
+        "Magic UI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://ether-guru-eta.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/videos/ether-guru.mp4",
+    },
+    {
+      title: "Dao Governance",
       href: "https://ether-guru-eta.vercel.app/",
       active: true,
       description:
