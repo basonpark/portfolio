@@ -206,7 +206,7 @@ export const DATA = {
       href: "https://monkeymind.app",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "MonkeyMind is an AI journal that provides us with reflective insights on common thought loops, cognitive biases, and emotional patterns. The aim is to help us enhance our self-awareness and make better decisions by querying our minds.",
       technologies: [
         "Next.js",
         "Typescript",
@@ -230,23 +230,24 @@ export const DATA = {
     },
     {
       title: "Prophit",
-      href: "https://magicui.design",
+      href: "https://prophit-nu.vercel.app/",
       active: true,
-      description: "Prediction market using Chainlink Oracle",
+      description:
+        "Prophit is prediction market that harnesses the wisdom of collective insights to forecast future events. It lets users create their own markets and uses the Chainlink Oracle to fetch real-time data backed by Polymarket.",
       technologies: [
         "Next.js",
         "Typescript",
-        "PostgreSQL",
+        "Chainlink",
         "Solidity",
         "TailwindCSS",
-        "Stripe",
+        "Wagmi",
         "Shadcn UI",
-        "Magic UI",
+        "Oracle",
       ],
       links: [
         {
           type: "Website",
-          href: "https://magicui.design",
+          href: "https://prophit-nu.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -290,6 +291,34 @@ export const DATA = {
       image: "",
       video: "https://cdn.llm.report/openai-demo.mp4",
     },
+    {
+      title: "EtherLens",
+      href: "https://metana-projects.vercel.app",
+      active: true,
+      description:
+        "An analytics platform that offers real-time insights into Ethereum network activity with advanced visualizations, focusing on block gas metrics fetched from the Alchemy API.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "Solidity",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Alchemy",
+        "Gas Optimization",
+        "Ethereum Virtual Machine",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://metana-projects.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video:
+        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/etherlens.mp4",
+    },
+
     {
       title: "AI Smart Contract Auditor",
       href: "https://automatic.chat",
