@@ -179,23 +179,24 @@ export default function ProjectsPage() {
         {/* Sidebar with darker brown background and increased shadow */}
         <aside
           ref={sidebarRef}
-          className="w-full md:w-1/5 md:sticky top-24 h-fit mb-8 md:mb-0 bg-[#6D4C41] shadow-2xl p-5 rounded-xl"
+          className="w-full md:w-1/5 md:sticky top-24 h-fit mb-8 md:mb-0 bg-[#6D4C41] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] p-5 rounded-xl border border-[#8D6E63]/30 hover:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1"
         >
           <h2 className="text-xl font-semibold mb-4 text-white">Projects</h2>
           <nav>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {DATA.projects.map((project) => {
                 const projectSlug = slugify(project.title);
                 const isActive = activeProject === projectSlug;
+                
                 return (
                   <li key={project.title}>
                     <a
                       href={`#${projectSlug}`}
                       onClick={(e) => handleSidebarLinkClick(e, projectSlug)}
-                      className={`block transition-colors text-sm font-semibold pl-2 pr-2 py-1 ${
+                      className={`transition-colors text-sm font-semibold px-3 py-2 block w-full ${
                         isActive
-                          ? "text-white bg-[#5D4037] border-l-2 border-[#F5D6BA] rounded-r-md"
-                          : "text-[#F5D6BA] hover:text-white"
+                          ? "text-white bg-[#5D4037] border-l-2 border-[#F5D6BA] rounded-r-md shadow-md"
+                          : "text-[#F5D6BA] hover:text-white hover:bg-[#5D4037]/50 rounded-r-md"
                       }`}
                     >
                       {project.title}
@@ -315,8 +316,7 @@ export default function ProjectsPage() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
-                                {link.icon}
-                                <span className="ml-1">{link.type}</span>
+                                {link.type}
                               </a>
                             </Button>
                           ))}
