@@ -346,7 +346,7 @@ export const DATA = {
     },
     {
       title: "Dao Governance",
-      href: "https://ether-guru-eta.vercel.app/",
+      href: "https://dao-governance-d-app.vercel.app/",
       active: true,
       description:
         "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
@@ -363,7 +363,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://ether-guru-eta.vercel.app/",
+          href: "https://dao-governance-d-app.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
