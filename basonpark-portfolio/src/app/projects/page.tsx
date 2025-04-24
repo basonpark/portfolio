@@ -40,7 +40,7 @@ interface Project {
 
 // Export a custom background style for the projects page
 // This will be imported by layout.tsx for the projects route
-export const projectsPageStyle = {
+const projectsPageStyle = {
   backgroundColor: "#F5D6BA", // Light peach background
 };
 
@@ -153,6 +153,8 @@ export default function ProjectsPage() {
       observerOptions
     );
 
+    const currentRefs = projectRefs.current; // Capture the ref value
+
     projectRefs.current.forEach((ref) => {
       if (ref) {
         ref.classList.add("project-card-initial");
@@ -161,7 +163,7 @@ export default function ProjectsPage() {
     });
 
     return () => {
-      projectRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => { // Use the captured value in cleanup
         if (ref) {
           observer.unobserve(ref);
         }

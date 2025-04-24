@@ -38,7 +38,7 @@ const QuoteCard: React.FC = () => {
     <Link href="/quotes" passHref>
       <div className="my-20 p-4 border rounded-lg shadow-lg bg-card text-card-foreground bg-gradient-to-br from-slate-100 to-slate-400 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105">
         <blockquote className="text-center font-verona">
-          <p className="font-bold text-xl">"{currentQuote.quote}"</p>
+          <p className="font-bold text-xl">&ldquo;{currentQuote.quote}&rdquo;</p>
           <footer className="text-center text-xs text-muted-foreground mt-2 font-bold">
             - {currentQuote.author}
           </footer>

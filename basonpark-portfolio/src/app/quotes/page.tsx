@@ -266,7 +266,6 @@ export default function QuotesPage() {
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:bg-[#e5ded3] text-[#5d4c42]"
               }`}
-              disabled={currentPage === 1}
             />
 
             {Array.from({ length: Math.min(5, totalPages) }).map((_, index) => {
@@ -306,7 +305,6 @@ export default function QuotesPage() {
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:bg-[#e5ded3] text-[#5d4c42]"
               }`}
-              disabled={currentPage === totalPages}
             />
           </PaginationContent>
         </Pagination>
