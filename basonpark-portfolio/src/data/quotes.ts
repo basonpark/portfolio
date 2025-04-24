@@ -3,7 +3,7 @@ export interface QuoteData {
     author: string;
   }
   
-  const quotesData: QuoteData[] = [
+  export const quotesData: QuoteData[] = [
       { quote: "A year from now you may wish you had started today.", author: "Karen Lamb" },
       { quote: "Watch what people are cynical about, and one can discover what they lack", author: "George S. Patton" },
       { quote: "Anything you say before the word 'but' does not count.", author: "Kevin Kelly" },
@@ -394,5 +394,4 @@ export interface QuoteData {
     { quote: "People think of education as something they can finish.", author: "Isaac Asimov" }
   ];
   
-  export default quotesData;
-  
+  // Removed conflicting default export

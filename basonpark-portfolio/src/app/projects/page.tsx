@@ -187,7 +187,7 @@ export default function ProjectsPage() {
               {DATA.projects.map((project) => {
                 const projectSlug = slugify(project.title);
                 const isActive = activeProject === projectSlug;
-                
+
                 return (
                   <li key={project.title}>
                     <a
@@ -302,7 +302,7 @@ export default function ProjectsPage() {
                       {project.links &&
                         project.links
                           .filter(
-                            (link) => !(project.href && link.type === "Website")
+                            (link) => link.type !== "Website" || !project.href
                           )
                           .map((link) => (
                             <Button

@@ -4,13 +4,13 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Bason Park",
   initials: "BP",
-  url: "https://dillion.io",
+  url: "https://basonpark.com",
   location: "Seoul, South Korea",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "It's like Jason with a B. Words like AI, blockchain, and art turn me on.",
+    "It's like Jason with a B. Welcome to my mindspace. Breathe in for 4 seconds, hold for 7, and exhale for 8.",
   summary:
-    "I was born in Japan, raised in South Korea, and educated in the US. I focused on computer science and business management at Columbia University. After graduating in 2021, I decided to explore some other cultures, especially those in South America and Europe. Now I am pursuing projects in AI and blockchain to enhance the quality of our lives.",
+    "This Homo Sapien was born in Japan, raised in South Korea, and educated in the States. He focused on computer science and business at Columbia. He forgot a lot of the course material when he had to serve in the Korean military for two years. To escape the monotony, he applied to become a peacekeeper in South Sudan. This unexpected jump from cocktail parties and coffee chats in NYC to eight months of mitigating tribal conflict in the world's poorest country gave him a mild domain expansion—a slight paradigm shift. After graduating, he decided to taste a few more cultural norms, particularly those in South America and Europe. Now he pursues projects in AI and blockchain, hoping to shift some more paradigms.",
   avatarUrl: "/basonpark.png",
 
   skills: [
@@ -82,7 +82,7 @@ export const DATA = {
       badges: [],
       href: "https://shopify.com",
       location: "Remote",
-      title: "Software Engineer",
+      title: "Product Manager",
       logoUrl: "/mountsinai.png",
       start: "April 2020",
       end: "October 2020",
@@ -106,7 +106,7 @@ export const DATA = {
       href: "https://splunk.com",
       badges: [],
       location: "San Jose, CA",
-      title: "Software Engineer",
+      title: "Research Analyst",
       logoUrl: "/astorian.png",
       start: "September 2018",
       end: "November 2018",
@@ -186,7 +186,7 @@ export const DATA = {
     {
       school: "Columbia University",
       href: "https://www.columbia.edu/",
-      degree: "Bachelor's Degree of Computer Science and Business Management",
+      degree: "B.A. in Computer Science, Business Management (GPA 3.95)",
       logoUrl: "/columbialogo.png",
       start: "2015",
       end: "2021",
@@ -220,7 +220,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://chatcollect.com",
+          href: "https://monkeymind.app",
           icon: <Icons.globe className="size-3" />,
         },
       ],
@@ -252,7 +252,7 @@ export const DATA = {
         },
         {
           type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
+          href: "https://github.com/basonpark/prophit",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -260,21 +260,53 @@ export const DATA = {
       video: "https://cdn.magicui.design/bento-grid.mp4",
     },
     {
+      title: "Ether Guru",
+      href: "https://ether-guru-eta.vercel.app/",
+      active: true,
+      description:
+        "Ether Guru is an AI-powered training platform for security professionals who want to master crypto security. It also houses an AI assistant trained on the Solidity documentation.",
+      technologies: [
+        "Langchain",
+        "Crawl4AI",
+        "OpenAI",
+        "Python",
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "Supabase",
+        "TailwindCSS",
+        "Shadcn UI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://ether-guru-eta.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/magicuidesign/magicui",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/videos/ether-guru.mp4",
+    },
+    {
       title: "Lumina Finance",
       href: "https://defi-stablecoin-yield.vercel.app/",
       active: true,
       description:
-        "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+        "A DeFi stablecoin yield farming application that enables users to earn interest on their crypto assets through a permissionless lending protocol with automated risk management.",
       technologies: [
         "Next.js",
         "Typescript",
-        "PostgreSQL",
-        "Prisma",
+        "Solidity",
+        "Ethers.js",
+        "Hardhat",
         "TailwindCSS",
         "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
+        "Web3 Modal",
       ],
       links: [
         {
@@ -347,47 +379,22 @@ export const DATA = {
       video:
         "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
     },
-    {
-      title: "Ether Guru",
-      href: "https://ether-guru-eta.vercel.app/",
-      active: true,
-      description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://ether-guru-eta.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "/videos/ether-guru.mp4",
-    },
+
     {
       title: "Dao Governance",
       href: "https://dao-governance-d-app.vercel.app/",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "A decentralized governance platform that enables DAOs to transparently manage proposals, voting, and treasury functions with on-chain execution capabilities.",
       technologies: [
         "Next.js",
         "Typescript",
-        "PostgreSQL",
-        "Prisma",
+        "Solidity",
+        "Ethers.js",
+        "Hardhat",
         "TailwindCSS",
-        "Stripe",
         "Shadcn UI",
-        "Magic UI",
+        "IPFS",
       ],
       links: [
         {

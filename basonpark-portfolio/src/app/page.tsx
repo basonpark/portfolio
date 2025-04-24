@@ -2,6 +2,7 @@ import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
+import QuoteCard from "@/components/QuoteCard"; // Import the new QuoteCard component
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -16,6 +17,7 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-4xl space-y-8">
+          <QuoteCard /> {/* Add the QuoteCard component here */}
           <div className="gap-6 flex items-center mt-14">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
@@ -41,7 +43,7 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-3xl font-bold">About</h2>
+          <h2 className="text-3xl font-bold">Out & About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground dark:prose-invert">

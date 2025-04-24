@@ -21,6 +21,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        verona: ["var(--font-verona-serial)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

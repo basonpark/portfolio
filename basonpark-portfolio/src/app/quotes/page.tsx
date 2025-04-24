@@ -11,7 +11,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import quotesData from "@/data/quotes";
+import { QuoteData, quotesData } from "@/data/quotes"; // Changed to named import and added QuoteData
 import useEmblaCarousel from "embla-carousel-react";
 import { veronaSerial } from "../fonts";
 
@@ -145,8 +145,8 @@ export default function QuotesPage() {
         }
       `}</style>
 
-      <h1 className="text-4xl verona-serial-bold mb-12 text-center text-[#5d4c42]">
-        Words of Wisdom
+      <h1 className="text-5xl verona-serial-bold mb-12 text-center text-[#5d4c42]">
+        some quotes that may change the way you think
       </h1>
 
       {/* Featured Quote - rotates every 10 seconds */}
@@ -239,7 +239,7 @@ export default function QuotesPage() {
           All Quotes
         </h2>
         <div className="space-y-5 mb-8">
-          {getPaginatedQuotes().map((quote, index) => (
+          {getPaginatedQuotes().map((quote: QuoteData, index: number) => ( // Added types
             <Card
               key={`paginated-${index}`}
               className="bg-[#f3f0e5] border-0 shadow-sm quote-card"
@@ -269,42 +269,38 @@ export default function QuotesPage() {
               disabled={currentPage === 1}
             />
 
-            {Array.from({ length: Math.min(5, totalPages) }).map(
-              (_, index) => {
-                // Logic to show current page and surrounding pages
-                let pageNum = currentPage;
-                if (totalPages <= 5) {
-                  pageNum = index + 1;
-                } else if (currentPage <= 3) {
-                  pageNum = index + 1;
-                } else if (currentPage >= totalPages - 2) {
-                  pageNum = totalPages - 4 + index;
-                } else {
-                  pageNum = currentPage - 2 + index;
-                }
-
-                return (
-                  <PaginationItem key={`page-${pageNum}`}>
-                    <PaginationLink
-                      onClick={() => setCurrentPage(pageNum)}
-                      isActive={currentPage === pageNum}
-                      className={`verona-serial-regular ${
-                        currentPage === pageNum
-                          ? "bg-[#bfb5a5] text-white border-[#bfb5a5]"
-                          : "text-[#5d4c42] hover:bg-[#e5ded3] border-[#d5c9bb]"
-                      }`}
-                    >
-                      {pageNum}
-                    </PaginationLink>
-                  </PaginationItem>
-                );
+            {Array.from({ length: Math.min(5, totalPages) }).map((_, index) => {
+              // Logic to show current page and surrounding pages
+              let pageNum = currentPage;
+              if (totalPages <= 5) {
+                pageNum = index + 1;
+              } else if (currentPage <= 3) {
+                pageNum = index + 1;
+              } else if (currentPage >= totalPages - 2) {
+                pageNum = totalPages - 4 + index;
+              } else {
+                pageNum = currentPage - 2 + index;
               }
-            )}
+
+              return (
+                <PaginationItem key={`page-${pageNum}`}>
+                  <PaginationLink
+                    onClick={() => setCurrentPage(pageNum)}
+                    isActive={currentPage === pageNum}
+                    className={`verona-serial-regular ${
+                      currentPage === pageNum
+                        ? "bg-[#bfb5a5] text-white border-[#bfb5a5]"
+                        : "text-[#5d4c42] hover:bg-[#e5ded3] border-[#d5c9bb]"
+                    }`}
+                  >
+                    {pageNum}
+                  </PaginationLink>
+                </PaginationItem>
+              );
+            })}
 
             <PaginationNext
-              onClick={() =>
-                setCurrentPage((p) => Math.min(totalPages, p + 1))
-              }
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               className={`verona-serial-regular ${
                 currentPage === totalPages
                   ? "opacity-50 cursor-not-allowed"
