@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description: "It's like Jason with a B. Welcome to my mindspace. ",
   summary:
-    "This specimen was born in Japan and raised in South Korea. He focused on computer science and business at Columbia, though he forgot a lot of the course material when he joined the Korean military for two years. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden jump from coffee chats and cocktail parties  in NYC to tribal warfare in the world's poorest country gave him a mild domain expansion—a slight paradigm shift. After graduating, he decided to taste a few more cultural norms, particularly those in South America and Europe. Now he pursues projects in AI and blockchain, hoping to shift some more paradigms.",
+    "This specimen was born in Japan and raised in South Korea. He focused on computer science and business at Columbia, though he forgot a lot of the course material when he joined the Korean military for two years. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden jump from coffee chats and cocktail parties in NYC to tribal conflict in the world's poorest country gave him a mild domain expansion—a slight paradigm shift. After graduating, he decided to taste a few more cultural norms, particularly those in South America and Europe. Now he pursues projects in AI and blockchain, hoping to shift some more paradigms.",
   avatarUrl: "/basonpark.png",
 
   skills: [
@@ -233,8 +233,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+      video: "/videos/monkeymind.mp4",
     },
     {
       title: "Prophit",
@@ -265,7 +264,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video: "/videos/prophit.mp4",
     },
     {
       title: "Ether Guru",
@@ -298,7 +297,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/videos/ether-guru.mp4",
+      video: "/videos/ether-guru1.mp4",
     },
     {
       title: "Lumina Finance",
@@ -329,7 +328,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
+      video: "/videos/lumina-finance.mp4",
     },
     {
       title: "EtherLens",
@@ -355,8 +354,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/etherlens.mp4",
+      video: "/videos/etherlens.mp4",
     },
 
     {
