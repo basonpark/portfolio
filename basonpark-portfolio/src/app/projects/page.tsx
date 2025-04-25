@@ -163,7 +163,8 @@ export default function ProjectsPage() {
     });
 
     return () => {
-      currentRefs.forEach((ref) => { // Use the captured value in cleanup
+      currentRefs.forEach((ref) => {
+        // Use the captured value in cleanup
         if (ref) {
           observer.unobserve(ref);
         }

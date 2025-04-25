@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { veronaSerial } from "./fonts";
 import "./globals.css";
+import { LayoutEffects } from "@/components/LayoutEffects";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -63,10 +64,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${veronaSerial.variable}`} suppressHydrationWarning={true}>
+    <html
+      lang="en"
+      className={`${veronaSerial.variable}`}
+      suppressHydrationWarning={true}
+    >
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-3xl mx-auto py-12 sm:py-24 px-6",
+          "min-h-screen bg-background font-sans antialiased max-w-[52rem] mx-auto py-12 sm:py-24 px-6",
           fontSans.variable
         )}
       >
@@ -75,6 +80,7 @@ export default function RootLayout({
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
               <NavBar items={navItems} />
+              <LayoutEffects /> {/* Include the effects component */}
             </div>
           </TooltipProvider>
         </ThemeProvider>
