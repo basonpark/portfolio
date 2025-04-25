@@ -1,3 +1,5 @@
+"use client";
+
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -9,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { TypeAnimation } from "react-type-animation";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -18,19 +21,55 @@ export default function Page() {
       <section id="hero">
         <div className="mx-auto w-full max-w-4xl space-y-8">
           <QuoteCard /> {/* Add the QuoteCard component here */}
-          <div className="gap-6 flex items-center mt-14">
-            <div className="flex-col flex flex-1 space-y-1.5">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-              />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
+          <div className="gap-3 flex items-center mt-14">
+            <div className="flex-col flex flex-1 space-y-2">
+              {/* Name Typing Animation */}
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <TypeAnimation
+                  sequence={[
+                    `Hi 👋 I'm ${DATA.name.split(" ")[0]}`, // Name text
+                    500, // Pause after name
+                  ]}
+                  wrapper="h1" // Use h1 for semantic heading
+                  speed={50} // Typing speed
+                  className="font-verona text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none block" // Apply styles
+                  repeat={0} // Type once
+                  cursor={false} // Hide cursor
+                />
+              </BlurFade>
+
+              {/* Description Typing Animation (Sequenced) */}
+              <BlurFade delay={BLUR_FADE_DELAY} className="min-h-8">
+                {" "}
+                {/* Reserve vertical space */}
+                <TypeAnimation
+                  sequence={[
+                    2000, // Initial delay (wait for name)
+                    "It's like Jason with a B.", // Type part 1
+                    3000, // Pause for 1 second
+                    " Welcome to my mindspace.", // Type part 2 (Note: uses the actual text, ensure it matches DATA.description)
+                    3000, // Pause briefly at the end
+                    "Hope your day is going",
+                    2000, // Pause briefly at the end
+                    "Hope your day is going better than expected",
+                    2000, // Pause briefly at the end
+                    "Mine's going pretty well",
+                    3000,
+                    "Mine's going pretty well because you're here",
+                    2000,
+                    "Thanks for asking",
+                    1000,
+                    "Thanks for asking :)", // Type the full phrase
+                    3000, // Final pause to show ':)'
+                    ":)",
+                  ]}
+                  wrapper="span" // Use span to avoid block layout issues
+                  speed={50} // Typing speed
+                  className="max-w-[600px] md:text-xl block" // Apply styles and ensure block display
+                  repeat={0} // Type only once
+                  cursor={true} // Show blinking cursor during animation
+                />
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-40 border">
@@ -41,12 +80,15 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="about">
+      <section
+        id="about"
+        className="space-y-8 w-full py-10 px-10 rounded-2xl shadow-2xl bg-gradient-to-br from-[#BC8F8F]/60 via-[#BC8F8F]/10 to-[#A67F7F]/30"
+      >
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-3xl font-bold">Out & About</h2>
+          <h2 className="text-3xl mb-2 font-verona font-bold">Origin Story</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-md text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full font-sans text-pretty text-md foreground dark:prose-invert">
             {DATA.summary}
           </Markdown>
         </BlurFade>
@@ -94,7 +136,7 @@ export default function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
+            <h2 className="text-xl font-verona font-bold">Education</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade

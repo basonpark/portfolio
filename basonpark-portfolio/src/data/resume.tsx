@@ -7,10 +7,9 @@ export const DATA = {
   url: "https://basonpark.com",
   location: "Seoul, South Korea",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
-  description:
-    "It's like Jason with a B. Welcome to my mindspace. Breathe in for 4 seconds, hold for 7, and exhale for 8.",
+  description: "It's like Jason with a B. Welcome to my mindspace. ",
   summary:
-    "This Homo Sapien was born in Japan, raised in South Korea, and educated in the States. He focused on computer science and business at Columbia. He forgot a lot of the course material when he had to serve in the Korean military for two years. To escape the monotony, he applied to become a peacekeeper in South Sudan. This unexpected jump from cocktail parties and coffee chats in NYC to eight months of mitigating tribal conflict in the world's poorest country gave him a mild domain expansion—a slight paradigm shift. After graduating, he decided to taste a few more cultural norms, particularly those in South America and Europe. Now he pursues projects in AI and blockchain, hoping to shift some more paradigms.",
+    "This Homo Sapien was born in Japan and raised in South Korea. He focused on computer science and business at Columbia, though he forgot a lot of the course material when he joined the Korean military for two years. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden jump from coffee chats and cocktail parties in NYC to tribal warfare in the world's poorest country gave him a mild domain expansion—a slight paradigm shift. After graduating, he decided to taste a few more cultural norms, particularly those in South America and Europe. Now he pursues projects in AI and blockchain, hoping to shift some more paradigms.",
   avatarUrl: "/basonpark.png",
 
   skills: [
