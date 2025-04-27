@@ -357,60 +357,60 @@ export const DATA = {
       video: "/videos/etherlens.mp4",
     },
 
-    {
-      title: "AI Smart Contract Auditor",
-      href: "https://automatic.chat",
-      active: true,
-      description:
-        "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://automatic.chat",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
-    },
+    // {
+    //   title: "AI Smart Contract Auditor",
+    //   href: "https://automatic.chat",
+    //   active: true,
+    //   description:
+    //     "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
+    //   technologies: [
+    //     "Next.js",
+    //     "Typescript",
+    //     "PostgreSQL",
+    //     "Prisma",
+    //     "TailwindCSS",
+    //     "Shadcn UI",
+    //     "Magic UI",
+    //     "Stripe",
+    //     "Cloudflare Workers",
+    //   ],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://automatic.chat",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //   ],
+    //   image: "",
+    //   video:
+    //     "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+    // },
 
-    {
-      title: "Dao Governance",
-      href: "https://dao-governance-d-app.vercel.app/",
-      active: true,
-      description:
-        "A decentralized governance platform that enables DAOs to transparently manage proposals, voting, and treasury functions with on-chain execution capabilities.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "Solidity",
-        "Ethers.js",
-        "Hardhat",
-        "TailwindCSS",
-        "Shadcn UI",
-        "IPFS",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://dao-governance-d-app.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "/videos/ether-guru.mp4",
-    },
+    // {
+    //   title: "Dao Governance",
+    //   href: "https://dao-governance-d-app.vercel.app/",
+    //   active: true,
+    //   description:
+    //     "A decentralized governance platform that enables DAOs to transparently manage proposals, voting, and treasury functions with on-chain execution capabilities.",
+    //   technologies: [
+    //     "Next.js",
+    //     "Typescript",
+    //     "Solidity",
+    //     "Ethers.js",
+    //     "Hardhat",
+    //     "TailwindCSS",
+    //     "Shadcn UI",
+    //     "IPFS",
+    //   ],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://dao-governance-d-app.vercel.app/",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //   ],
+    //   image: "",
+    //   video: "/videos/ether-guru.mp4",
+    // },
   ],
 };
