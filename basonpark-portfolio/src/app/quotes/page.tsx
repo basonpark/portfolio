@@ -11,36 +11,19 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { QuoteData, quotesData } from "@/data/quotes"; // Changed to named import and added QuoteData
-import useEmblaCarousel from "embla-carousel-react";
+import { QuoteData, quotesData } from "@/data/quotes";
 import { veronaSerial } from "../fonts";
+import SlideFadeIn from "@/components/magicui/slide-fade-in";
 
 // Define the number of quotes per page
 const QUOTES_PER_PAGE = 20;
 // Define favorite quote indices
-const FAVORITE_QUOTES = [0, 3, 7, 10, 15];
+const FAVORITE_QUOTES = [0, 1, 2, 6, 4, 3, 7, 10, 11, 15];
+const BLUR_FADE_DELAY = 0.05;
 
 export default function QuotesPage() {
-  // State for the rotating featured quote
-  const [featuredQuoteIndex, setFeaturedQuoteIndex] = useState(0);
   // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
-  // Embla carousel
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-  });
-
-  // Handle rotation of featured quote every 10 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFeaturedQuoteIndex((prevIndex) =>
-        prevIndex === quotesData.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   // Get paginated quotes for the current page
   const getPaginatedQuotes = () => {
@@ -48,20 +31,11 @@ export default function QuotesPage() {
     return quotesData.slice(startIndex, startIndex + QUOTES_PER_PAGE);
   };
 
-  // Calculate total pages
-  const totalPages = Math.ceil(quotesData.length / QUOTES_PER_PAGE);
-
   // Get favorite quotes
   const favoriteQuotes = FAVORITE_QUOTES.map((index) => quotesData[index]);
 
-  // Handle sliding the carousel manually
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  // Calculate total pages
+  const totalPages = Math.ceil(quotesData.length / QUOTES_PER_PAGE);
 
   return (
     <section className="py-16 px-6 max-w-5xl mx-auto">
@@ -82,15 +56,25 @@ export default function QuotesPage() {
           font-weight: 700;
         }
 
+        /* Changed Lexend to Figtree and made bolder */
+        .figtree-quote-font {
+          font-family: var(--font-figtree), sans-serif !important;
+          font-weight: 700; /* Bold weight */
+        }
+
+        .figtree-quote-author {
+          font-family: var(--font-figtree), sans-serif !important;
+          font-weight: 800; /* ExtraBold weight */
+        }
+
         /* Make sure these styles apply broadly */
         h1,
         h2,
         h3,
-        blockquote,
-        footer,
+        /* Removed blockquote and footer to prevent override */
         .pagination-link,
         button {
-          font-family: var(--font-verona-serial), Georgia, serif !important;
+          font-family: var(--font-verona-serial), Georgia, serif;
         }
 
         .quote-card {
@@ -102,112 +86,14 @@ export default function QuotesPage() {
           transform: translateY(-5px);
         }
 
-        .featured-quote-card {
-          animation: fadeInOut 10s infinite;
-        }
-
-        @keyframes fadeInOut {
-          0% {
-            opacity: 0.9;
-          }
-          15% {
-            opacity: 1;
-          }
-          85% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0.9;
-          }
-        }
-
-        .carousel-container {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .embla {
-          overflow: hidden;
-        }
-
-        .embla__container {
-          display: flex;
-        }
-
-        .embla__slide {
-          flex: 0 0 100%;
-          min-width: 0;
-          padding: 0 1rem;
-        }
-
         blockquote {
           padding: 1rem;
         }
       `}</style>
 
-      <h1 className="text-5xl verona-serial-bold mb-12 text-center text-[#5d4c42]">
-        some quotes that may change the way you think
+      <h1 className="text-5xl verona-serial-bold mb-12 text-center text-slate-800">
+        some quotes that may <br /> change the way you think
       </h1>
-
-      {/* Featured Quote - rotates every 10 seconds */}
-      <div className="mb-20">
-        <h2 className="text-2xl mb-6 verona-serial-bold text-[#7c6c62]">
-          Featured Quote
-        </h2>
-        <Card className="bg-[#f3f0e5] border-0 shadow-lg quote-card featured-quote-card">
-          <CardContent className="p-8">
-            <blockquote className="text-2xl verona-serial-regular border-l-4 border-[#bfb5a5] pl-6 pr-4 py-2">
-              &quot;{quotesData[featuredQuoteIndex].quote}&quot;
-              <footer className="mt-5 text-lg text-[#7c6c62] verona-serial-bold">
-                — {quotesData[featuredQuoteIndex].author}
-              </footer>
-            </blockquote>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Carousel of Quotes */}
-      <div className="mb-20">
-        <h2 className="text-2xl mb-6 verona-serial-bold text-[#7c6c62]">
-          Quotes Carousel
-        </h2>
-        <div className="carousel-container">
-          <div className="embla" ref={emblaRef}>
-            <div className="embla__container">
-              {quotesData.slice(0, 10).map((quote, index) => (
-                <div className="embla__slide" key={`carousel-${index}`}>
-                  <Card className="bg-[#e5ded3] border-0 shadow-md quote-card h-52 flex items-center">
-                    <CardContent className="p-6 text-center">
-                      <blockquote className="text-lg verona-serial-regular">
-                        &quot;{quote.quote}&quot;
-                        <footer className="mt-3 text-sm text-[#7c6c62] verona-serial-bold">
-                          — {quote.author}
-                        </footer>
-                      </blockquote>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex justify-center gap-5 mt-6">
-            <Button
-              variant="outline"
-              onClick={scrollPrev}
-              className="bg-[#d5c9bb] border-0 text-[#5d4c42] hover:bg-[#bfb5a5] hover:text-[#f3f0e5] verona-serial-regular px-5 py-2"
-            >
-              Previous
-            </Button>
-            <Button
-              variant="outline"
-              onClick={scrollNext}
-              className="bg-[#d5c9bb] border-0 text-[#5d4c42] hover:bg-[#bfb5a5] hover:text-[#f3f0e5] verona-serial-regular px-5 py-2"
-            >
-              Next
-            </Button>
-          </div>
-        </div>
-      </div>
 
       {/* Favorite Quotes */}
       <div className="mb-20">
@@ -216,19 +102,21 @@ export default function QuotesPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {favoriteQuotes.map((quote, index) => (
-            <Card
+            <SlideFadeIn
               key={`favorite-${index}`}
-              className="bg-white border border-[#d5c9bb]/50 shadow-md quote-card hover:shadow-xl"
+              delay={BLUR_FADE_DELAY * index}
             >
-              <CardContent className="p-6">
-                <blockquote className="text-lg verona-serial-regular">
-                  &quot;{quote.quote}&quot;
-                  <footer className="mt-4 text-sm text-[#5d4c42] verona-serial-bold">
-                    — {quote.author}
-                  </footer>
-                </blockquote>
-              </CardContent>
-            </Card>
+              <Card className="bg-white border border-[#d5c9bb]/50 shadow-lg hover:shadow-2xl quote-card">
+                <CardContent className="p-6">
+                  <blockquote className="text-xl figtree-quote-font">
+                    &quot;{quote.quote}&quot;
+                    <footer className="mt-4 text-sm text-[#5d4c42] figtree-quote-author">
+                      — {quote.author}
+                    </footer>
+                  </blockquote>
+                </CardContent>
+              </Card>
+            </SlideFadeIn>
           ))}
         </div>
       </div>
@@ -239,20 +127,22 @@ export default function QuotesPage() {
           All Quotes
         </h2>
         <div className="space-y-5 mb-8">
-          {getPaginatedQuotes().map((quote: QuoteData, index: number) => ( // Added types
-            <Card
+          {getPaginatedQuotes().map((quote: QuoteData, index: number) => (
+            <SlideFadeIn
               key={`paginated-${index}`}
-              className="bg-[#f3f0e5] border-0 shadow-sm quote-card"
+              delay={BLUR_FADE_DELAY * index}
             >
-              <CardContent className="p-5">
-                <blockquote className="text-base verona-serial-regular">
-                  &quot;{quote.quote}&quot;
-                  <footer className="mt-3 text-sm text-[#5d4c42] verona-serial-bold">
-                    — {quote.author}
-                  </footer>
-                </blockquote>
-              </CardContent>
-            </Card>
+              <Card className="bg-[#f3f0e5] border-0 shadow-md hover:shadow-lg quote-card">
+                <CardContent className="p-5">
+                  <blockquote className="text-lg figtree-quote-font">
+                    &quot;{quote.quote}&quot;
+                    <footer className="mt-3 text-sm text-[#5d4c42] figtree-quote-author">
+                      — {quote.author}
+                    </footer>
+                  </blockquote>
+                </CardContent>
+              </Card>
+            </SlideFadeIn>
           ))}
         </div>
 

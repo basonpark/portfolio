@@ -50,41 +50,6 @@ export default function ProjectsPage() {
   // Reference to the sidebar section for scroll alignment
   const sidebarRef = useRef<HTMLElement>(null);
 
-  // Custom scroll animation function with easing for a weightier feel
-  const scrollWithWeight = (targetPosition: number, duration: number = 500) => {
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    let startTime: number | null = null;
-
-    // Easing function that gives a weighted feel with exaggerated bounce
-    const easeOutBack = (t: number): number => {
-      const c1 = 3; // Increased from 1.70158 for more bounce
-      const c2 = c1 * 2; // Increased from c1 * 1.525 for more exaggerated effect
-      return 1 + c2 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-    };
-
-    // Animation function
-    const animateScroll = (currentTime: number) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-
-      // Apply easing to the progress
-      const easedProgress = easeOutBack(progress);
-
-      // Calculate new position with a subtle bounce effect at the end
-      window.scrollTo(0, startPosition + distance * easedProgress);
-
-      // Continue animation if not complete
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    // Start the animation
-    requestAnimationFrame(animateScroll);
-  };
-
   // Handle clicks on sidebar links with custom scrolling
   const handleSidebarLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -100,8 +65,11 @@ export default function ProjectsPage() {
       const elementPosition = projectElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - sidebarTop;
 
-      // Use custom weighted scroll instead of window.scrollTo
-      scrollWithWeight(offsetPosition);
+      // Use native smooth scrolling
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
 
       // Update active project
       setActiveProject(projectId);
@@ -113,8 +81,8 @@ export default function ProjectsPage() {
       root: null,
       // Further adjusted root margin for more accurate detection
       rootMargin: "-40% 0px -20% 0px",
-      // Multiple thresholds with higher values
-      threshold: [0.1, 0.2, 0.3, 0.4, 0.5],
+      // Simplified threshold
+      threshold: 0.5,
     };
 
     const observerCallback = (
@@ -175,7 +143,7 @@ export default function ProjectsPage() {
   return (
     // Use transparent background here since the parent layout handles the full-width background
     <section className="py-12">
-      <h1 className="text-3xl font-bold mb-12 text-center text-white">
+      <h1 className="text-5xl md:text-6xl font-bold mb-6 text-left ml-20 pl-28 pb-2 bg-gradient-to-br from-fuchsia-50 to-fuchsia-200 bg-clip-text text-transparent">
         Projects
       </h1>
       <div className="flex flex-col md:flex-row gap-6 px-2 lg:px-4">
@@ -244,6 +212,7 @@ export default function ProjectsPage() {
                       loop
                       autoPlay
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -254,7 +223,7 @@ export default function ProjectsPage() {
                     className={
                       isFeatured
                         ? "text-3xl md:text-4xl font-bold text-black"
-                        : "text-xl font-semibold text-black"
+                        : "text-2xl font-semibold text-black"
                     }
                   >
                     {project.title}
@@ -263,7 +232,7 @@ export default function ProjectsPage() {
                     className={
                       isFeatured
                         ? "text-lg md:text-xl mt-2 text-gray-700"
-                        : "text-sm mt-1 text-gray-700"
+                        : "text-base mt-1 text-gray-700"
                     }
                   >
                     {project.description}
@@ -276,7 +245,7 @@ export default function ProjectsPage() {
                       {project.technologies.map((tech) => (
                         <Badge
                           key={tech}
-                          className="bg-[#F5D6BA] hover:bg-[#BC8F8F] text-black border-[#BC8F8F]"
+                          className="bg-[#FFE0B2] hover:bg-[#F5D6BA] text-white border-[#BC8F8F]"
                         >
                           {tech}
                         </Badge>
@@ -291,7 +260,7 @@ export default function ProjectsPage() {
                       {project.href && (
                         <Button
                           asChild
-                          className="bg-[#BC8F8F] hover:bg-[#8D6E63] text-black border-none"
+                          className="bg-[#BC8F8F] hover:bg-[#8D6E63] text-white border-none"
                         >
                           <a
                             href={project.href}
@@ -304,15 +273,13 @@ export default function ProjectsPage() {
                       )}
                       {project.links &&
                         project.links
-                          .filter(
-                            (link) => link.type !== "Website" || !project.href
-                          )
+                          .filter((link) => link.type !== "Source")
                           .map((link) => (
                             <Button
                               key={link.type}
                               asChild
                               variant="outline"
-                              className="border-[#F5D6BA] text-black hover:bg-[#FFE0B2] hover:border-[#BC8F8F]"
+                              className="border-[#F5D6BA] text-black hover:bg-[rgb(255,224,178)] hover:border-[#BC8F8F]"
                             >
                               <a
                                 href={link.href}

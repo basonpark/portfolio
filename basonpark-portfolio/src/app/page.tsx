@@ -21,7 +21,7 @@ import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.02;
 
 export default function Page() {
   useSmoothScroll();
@@ -168,9 +168,8 @@ export default function Page() {
                     Check out my latest work
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    I&apos;ve worked on a variety of projects, from smart
-                    contracts to complex AI applications. Here are a few of my
-                    favorites.
+                    I&apos;ve worked projects in AI and blockchain. Here are a
+                    few of my favorites.
                   </p>
                 </div>
               </div>

@@ -5,6 +5,9 @@
 /* CSS Variables for Theming */
 @layer base {
   :root {
+    --font-figtree: '__Figtree_aaf87e', '__Figtree_Fallback_aaf87e';
+    --font-verona-serial: '__veronaSerial_c7e07e', '__veronaSerial_Fallback_c7e07e';
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;

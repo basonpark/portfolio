@@ -4,12 +4,12 @@ import { NavBar } from "@/components/ui/tubelight-navbar";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Figtree } from "next/font/google";
 import { veronaSerial } from "./fonts";
 import "./globals.css";
 import { LayoutEffects } from "@/components/LayoutEffects";
 
-const fontSans = Inter({
+const fontSans = Figtree({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",

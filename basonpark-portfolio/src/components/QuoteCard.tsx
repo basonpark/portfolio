@@ -41,18 +41,16 @@ const QuoteCard: React.FC = () => {
       <div className="my-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
         {/* This inner div contains the styling, padding, and a new max-width independent of the main content */}
         <div
-          className="p-4 px-8 border rounded-lg shadow-lg bg-card text-card-foreground bg-gradient-to-br from-slate-100 to-slate-400 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105 max-w-6xl mx-auto h-48 flex flex-col justify-center"
-          style={{ perspective: "1000px" }}
+          className="p-4 px-8 rounded-lg bg-card text-card-foreground cursor-pointer max-w-6xl mx-auto h-48 flex flex-col justify-center"
         >
           <AnimatePresence mode="wait"> {/* Use mode='wait' for clean exit/enter */}
             <motion.blockquote
               key={currentQuoteIndex} // Key change triggers animation
-              className="text-center font-verona"
-              initial={{ rotateY: 90, opacity: 0 }}
-              animate={{ rotateY: 0, opacity: 1 }}
-              exit={{ rotateY: -90, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              style={{ transformStyle: "preserve-3d" }} // Needed for children in 3D space
+              className="text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.7 }}
             >
               <p className="font-bold text-3xl">
                 &ldquo;{currentQuote.quote}&rdquo;

@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description: "It's like Jason with a B. Welcome to my mindspace. ",
   summary:
-    "This specimen was born in Japan and raised in South Korea. He focused on computer science and business at Columbia, though he forgot a lot of the course material when he joined the Korean military for two years. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden jump from coffee chats and cocktail parties in NYC to tribal conflict in the world's poorest country gave him a mild domain expansion—a slight paradigm shift. After graduating, he decided to taste a few more cultural norms, particularly those in South America and Europe. Now he pursues projects in AI and blockchain, hoping to shift some more paradigms.",
+    "This specimen was born in Japan and raised in South Korea. He studied computer science in college, though he forgot a lot of the algorithms when he joined the Korean military. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's poorest country induced in him a mild domain expansion. After graduating, he decided to try out a few more cultures, particularly those in South America and Europe. His current focus is building AI tools that help us discover hidden thought patterns and make better decisions.",
   avatarUrl: "/basonpark.png",
 
   skills: [
