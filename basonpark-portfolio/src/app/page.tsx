@@ -11,19 +11,35 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import { quotesData } from "@/data/quotes"; // Import quotes data
 import { ScrollBoldText } from "@/components/ScrollBoldText";
 import { TypeAnimation } from "react-type-animation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BLUR_FADE_DELAY = 0.02;
 
+interface QuoteType {
+  quote: string;
+  author?: string;
+}
+
 export default function Page() {
   useSmoothScroll();
+
+  const [mainPageQuote, setMainPageQuote] = useState<QuoteType | null>(null);
+
+  useEffect(() => {
+    const quotesPool = quotesData.slice(0, 26);
+    if (quotesPool.length > 0) {
+      const randomIndex = Math.floor(Math.random() * quotesPool.length);
+      setMainPageQuote(quotesPool[randomIndex]);
+    }
+  }, []);
 
   // Define color map for language badges with gradients
   const languageColors: { [key: string]: string } = {
@@ -352,6 +368,86 @@ export default function Page() {
           </section>
         </div>
       </div>
+      <section id="hero">
+        <div className="mx-auto w-full max-w-4xl space-y-8 mb-32">
+          <div className="gap-3 flex items-center mt-14">
+            <div className="flex-col flex flex-1 space-y-2">
+              {/* Name Typing Animation */}
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <TypeAnimation
+                  sequence={[
+                    `Hi 👋 I'm ${DATA.name.split(" ")[0]}`, // Name text
+                    500, // Pause after name
+                  ]}
+                  wrapper="h1" // Use h1 for semantic heading
+                  speed={50} // Typing speed
+                  className="font-verona text-4xl font-bold tracking-tighter sm:text-5xl xl:text-7xl/none block" // Apply styles
+                  repeat={0} // Type once
+                  cursor={false} // Hide cursor
+                />
+              </BlurFade>
+
+              {/* Description Typing Animation (Sequenced) */}
+              <BlurFade delay={BLUR_FADE_DELAY} className="min-h-8">
+                {" "}
+                {/* Reserve vertical space */}
+                <TypeAnimation
+                  sequence={[
+                    2000, // Initial delay (wait for name)
+                    "It's like Jason with a B.", // Type part 1
+                    3000, // Pause for 1 second
+                    " Welcome to my mindspace.", // Type part 2 (Note: uses the actual text, ensure it matches DATA.description)
+                    1000, // Pause briefly at the end
+                    "Hope your day is going",
+                    2000, // Pause briefly at the end
+                    "Hope your day is going better than expected",
+                    1000, // Pause briefly at the end
+                    "Mine's going pretty well",
+                    2000,
+                    "Mine's going pretty well because you're here",
+                    2000,
+                    "Mine's going pretty well because you're here :)", // Type the full phrase
+                    500, // Final pause to show ':)'
+                    ":)",
+                  ]}
+                  wrapper="span" // Use span to avoid block layout issues
+                  speed={50} // Typing speed
+                  className="max-w-[600px] md:text-xl block" // Apply styles and ensure block display
+                  repeat={0} // Type only once
+                  cursor={true} // Show blinking cursor during animation
+                />
+              </BlurFade>
+            </div>
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <Avatar className="size-48 border">
+                {" "}
+                {/* Increased size */}
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarFallback>{DATA.initials}</AvatarFallback>
+              </Avatar>
+            </BlurFade>
+          </div>
+        </div>
+        <div className="mx-auto w-full max-w-lg">
+          <BlurFade delay={BLUR_FADE_DELAY}>
+            <div className="space-y-3">
+              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                Quote
+              </div>
+              {mainPageQuote && (
+                <blockquote className="text-xs">
+                  &quot;{mainPageQuote.quote}&quot;
+                  {mainPageQuote.author && (
+                    <span className="block text-right text-muted-foreground/80">
+                      - {mainPageQuote.author}
+                    </span>
+                  )}
+                </blockquote>
+              )}
+            </div>
+          </BlurFade>
+        </div>
+      </section>
     </main>
   );
 }

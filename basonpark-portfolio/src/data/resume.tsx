@@ -36,7 +36,7 @@ export const DATA = {
   languages: ["English", "Korean", "Spanish", "Japanese", "Chinese", "Italian"],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/art", icon: NotebookIcon, label: "Art" },
   ],
   contact: {
     email: "basonpark@gmail.com",
@@ -415,37 +415,133 @@ export const DATA = {
   ],
   art: [
     {
-      imageUrl: "/art/placeholder1.jpg", // Replace with actual image path
-      title: "Abstract Forms",
-      year: 2023,
-      dimensions: "30x40 cm",
-      medium: "Acrylic on Canvas",
-      description: "An exploration of color and shape interaction."
+      imageUrl: "/art/tropfuneral.jpg",
+      title: "Tropical Funeral",
+      year: 2025,
+      dimensions: "100 x 81 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
     },
     {
-      imageUrl: "/art/placeholder2.jpg", // Replace with actual image path
-      title: "City Dreams",
-      year: 2022,
-      dimensions: "50x70 cm",
-      medium: "Oil on Linen",
-      description: "A nocturnal cityscape reflecting urban aspirations."
+      imageUrl: "/art/birthoffunky.png",
+      title: "Birth of a Funky Humanimal",
+      year: 2025,
+      dimensions: "80 x 60 cm",
+      medium: "Oil on canvas",
+      description: "An exploration of color and shape interaction.",
     },
+
     {
-      imageUrl: "/art/placeholder3.jpg", // Replace with actual image path
-      title: "Serene Landscape",
+      imageUrl: "/art/templetempo.jpeg",
+      title: "Temple Tempo",
       year: 2024,
-      dimensions: "60x40 cm",
-      medium: "Watercolor on Paper",
-      description: "Capturing the tranquility of a misty morning."
+      dimensions: "80 x 60 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
     },
     {
-      imageUrl: "/art/placeholder4.jpg", // Replace with actual image path
-      title: "Portrait Study",
+      imageUrl: "/art/nunfiction.jpeg",
+      title: "Nun Fiction",
+      year: 2025,
+      dimensions: "46 x 54 cm",
+      medium: "Oil on Canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/elevatorchat.jpg",
+      title: "Elevator Chat",
+      year: 2025,
+      dimensions: "80 x 60 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/submergedbunny.png",
+      title: "Submerged Bunny",
+      year: 2021,
+      dimensions: "32 x 44 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/wants.png",
+      title: "Wants of a Desert Nun",
+      year: 2020,
+      dimensions: "44 x 32 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/comfytension.png",
+      title: "Comfy Tension",
+      year: 2024,
+      dimensions: "50 x 70 cm",
+      medium: "Oil on canvas",
+      description: "A nocturnal cityscape reflecting urban aspirations.",
+    },
+    {
+      imageUrl: "/art/delayedattraction.png",
+      title: "Delayed Attraction",
+      year: 2022,
+      dimensions: "44 x 56 cm",
+      medium: "Oil on canvas",
+      description: "Capturing the tranquility of a misty morning.",
+    },
+    {
+      imageUrl: "/art/girafficjam.png",
+      title: "Giraffic Jam",
+      year: 2021,
+      dimensions: "24 x 18 in",
+      medium: "Oil on canvas",
+      description: "A quick study focusing on light and shadow.",
+    },
+    {
+      imageUrl: "/art/ido.png",
+      title: "I do",
+      year: 2022,
+      dimensions: "26 x 20 in",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/kidult.png",
+      title: "Kidult",
+      year: 2021,
+      dimensions: "36 x 28 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/koreajapan.png",
+      title: "Korea and Japan",
+      year: 2021,
+      dimensions: "24 x 18 in",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/mindtheseal.png",
+      title: "Mind the Seal",
+      year: 2022,
+      dimensions: "20 x 28 in",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/organicgroove.jpeg",
+      title: "Organic Groove",
+      year: 2024,
+      dimensions: "50 x 40 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/silentsirens.png",
+      title: "Silent Sirens",
       year: 2023,
-      dimensions: "20x25 cm",
-      medium: "Charcoal on Paper",
-      description: "A quick study focusing on light and shadow."
-    }
-    // Add more art pieces here
+      dimensions: "50 x 40 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
   ],
 };

@@ -4,14 +4,36 @@ export interface QuoteData {
   }
   
   export const quotesData: QuoteData[] = [
-      { quote: "A year from now you may wish you had started today.", author: "Karen Lamb" },
-      { quote: "Watch what people are cynical about, and one can discover what they lack", author: "George S. Patton" },
-      { quote: "Anything you say before the word 'but' does not count.", author: "Kevin Kelly" },
+
+    { quote: "A year from now you may wish you had started today.", author: "Karen Lamb" },
+    { quote: "Watch what people are cynical about, and one can discover what they lack", author: "George S. Patton" },
+    { quote: "Do not let the opinions of others become your reality.", author: "Les Brown" },
+    { quote: "Anything you say before the word 'but' does not count.", author: "Kevin Kelly" },
+    { quote: "Don't believe everything you think", author: "Robert Fulghum" },
+    { quote: "The main thing is to keep the main thing the main thing.", author: "Kevin Kelly" },
+    { quote: "We are what we pretend to be, so we must be careful of what we pretend to be.", author: "Kurt Vonnegut" },
+    { quote: "I can resist anything except temptation.", author: "Oscar Wilde" },
     { quote: "Don't let yesterday use up too much of today.", author: "Will Rogers" },
+    { quote: "Worrying is paying a debt you don't owe", author: "Mark Twain" },
+    { quote: "Ignore what others may be thinking of you, because they aren't thinking of you", author: "Kevin Kelly" },
+    { quote: "You don't rise to the level of your goals, you drop to the level of your systems", author: "James Clear" },
+    { quote: "Don't be the best. Be the only.", author: "Kevin Kelly" },
+    { quote: "Novelty is the price of loyalty. Loneliness is the price of ambition. Discretion is the price of trust", author: "Alex Hormozi" },
+    { quote: "Impatience with actions, patience with results.", author: "Naval Ravikant" },
+    { quote: "Brevity is the soul of wit", author: "William Shakespeare" },
+    { quote: "The advice you give is usually the advice you most need", author: "Adam Grant" },
+    { quote: "What you fear most is usually what you most need to do", author: "Tim Ferriss" },
+    { quote: "Dance with your hips", author: "Kevin Kelly" },
+    { quote: "How you do anything is how you do everything", author: "Dalai Lama" },
+    { quote: "Where your fear is, there is your task", author: "Carl Jung" },
+    { quote: "You are as big as the things that make you angry", author: "Kevin Kelly" },
+    { quote: "Do what feels like play to you but work for others", author: "Naval Ravikant" },
     { quote: "Ultimately, what we regret is not failure, but failure to act.", author: "Adam Grant" },
+
+    { quote: "To learn from your mistakes, first laugh at your mistakes", author: "Kevin Kelly"},
     { quote: "Don't get so busy making a living that you forget to make a life.", author: "Dolly Parton" },
     { quote: "I'd rather regret the things I've done than regret the things I haven't done.", author: "Lucille Ball" },
-    { quote: "The willingness to acecpt responsibility for one's own life is the source from which self-respect springs.", author: "Joan Didion" },
+    { quote: "The willingness to accept responsibility for one's own life is the source from which self-respect springs.", author: "Joan Didion" },
     { quote: "Small-minded people blame others. Average people blame themselves. The wise see all blame as foolishness.", author: "Epictetus" },
     { quote: "The first person you lead is you.", author: "John C. Maxwell" },
     { quote: "Never undersell yourself unless you want everyone else to.", author: "Elaine Dundy" },
@@ -196,9 +218,10 @@ export interface QuoteData {
     { quote: "A year from now you may wish you had started today.", author: "Karen Lamb" },
     { quote: "Don't let yesterday use up too much of today.", author: "Will Rogers" },
     { quote: "Ultimately, what we regret is not failure, but failure to act.", author: "Adam Grant" },
-    { quote: "Don't get so busy making a living that you forget to make a life.", author: "Dolly Parton" },
+    { quote: "To learn from your mistakes, first laugh at your mistakes", author: "Kevin Kelly"},
     { quote: "I'd rather regret the things I've done than regret the things I haven't done.", author: "Lucille Ball" },
     { quote: "The willingness to acecpt responsibility for one's own life is the source from which self-respect springs.", author: "Joan Didion" },
+    { quote: "Don't get so busy making a living that you forget to make a life.", author: "Dolly Parton" },
     { quote: "Small-minded people blame others. Average people blame themselves. The wise see all blame as foolishness.", author: "Epictetus" },
     { quote: "The first person you lead is you.", author: "John C. Maxwell" },
     { quote: "Never undersell yourself unless you want everyone else to.", author: "Elaine Dundy" },
@@ -392,6 +415,7 @@ export interface QuoteData {
     { quote: "Sometimes it is said that man cannot be trusted with the government of himself. Can he, then, be trusted with the government of others?", author: "Thomas Jefferson" },
     { quote: "Believe those who are seeking the truth; doubt those who find it.", author: "Andre Gide" },
     { quote: "People think of education as something they can finish.", author: "Isaac Asimov" }
+
   ];
   
   // Removed conflicting default export
