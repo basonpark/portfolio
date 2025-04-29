@@ -13,6 +13,8 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import { quotesData } from "@/data/quotes"; // Import quotes data
 import { ScrollBoldText } from "@/components/ScrollBoldText";
+import { Button } from "@/components/ui/button"; // Import Button for social links
+import { Linkedin, Github, Mail } from "lucide-react"; // Import icons for social links
 import { TypeAnimation } from "react-type-animation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -189,7 +191,9 @@ export default function Page() {
                 </div>
               </div>
             </PopUpFadeIn>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl mx-auto grid-auto-rows-fr"> {/* Increased max-width & uniform height */}
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl mx-auto grid-auto-rows-fr">
+              {" "}
+              {/* Increased max-width & uniform height */}
               {DATA.projects.map((project, id) => (
                 <PopUpFadeIn
                   key={project.title}
@@ -364,90 +368,51 @@ export default function Page() {
                   </p>
                 </div>
               </BlurFade>
+              {/* Social Links Section */}
+              <section id="contact-socials" className="pb-16">
+                {" "}
+                {/* Added padding */}
+                <div className="flex justify-center items-center gap-4">
+                  <BlurFade delay={BLUR_FADE_DELAY * 15}>
+                    <a
+                      href={DATA.contact.social.LinkedIn.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                    >
+                      <Button variant="outline" size="icon">
+                        <Linkedin className="h-4 w-4" />
+                      </Button>
+                    </a>
+                  </BlurFade>
+                  <BlurFade delay={BLUR_FADE_DELAY * 16}>
+                    <a
+                      href={DATA.contact.social.GitHub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                    >
+                      <Button variant="outline" size="icon">
+                        <Github className="h-4 w-4" />
+                      </Button>
+                    </a>
+                  </BlurFade>
+                  <BlurFade delay={BLUR_FADE_DELAY * 17}>
+                    <a
+                      href={`mailto:basonpark@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Bason,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and...`}
+                      aria-label="Email Bason Park"
+                    >
+                      <Button variant="outline" size="icon">
+                        <Mail className="h-4 w-4" />
+                      </Button>
+                    </a>
+                  </BlurFade>
+                </div>
+              </section>
             </div>
           </section>
         </div>
       </div>
-      <section id="hero">
-        <div className="mx-auto w-full max-w-4xl space-y-8 mb-32">
-          <div className="gap-3 flex items-center mt-14">
-            <div className="flex-col flex flex-1 space-y-2">
-              {/* Name Typing Animation */}
-              <BlurFade delay={BLUR_FADE_DELAY}>
-                <TypeAnimation
-                  sequence={[
-                    `Hi 👋 I'm ${DATA.name.split(" ")[0]}`, // Name text
-                    500, // Pause after name
-                  ]}
-                  wrapper="h1" // Use h1 for semantic heading
-                  speed={50} // Typing speed
-                  className="font-verona text-4xl font-bold tracking-tighter sm:text-5xl xl:text-7xl/none block" // Apply styles
-                  repeat={0} // Type once
-                  cursor={false} // Hide cursor
-                />
-              </BlurFade>
-
-              {/* Description Typing Animation (Sequenced) */}
-              <BlurFade delay={BLUR_FADE_DELAY} className="min-h-8">
-                {" "}
-                {/* Reserve vertical space */}
-                <TypeAnimation
-                  sequence={[
-                    2000, // Initial delay (wait for name)
-                    "It's like Jason with a B.", // Type part 1
-                    3000, // Pause for 1 second
-                    " Welcome to my mindspace.", // Type part 2 (Note: uses the actual text, ensure it matches DATA.description)
-                    1000, // Pause briefly at the end
-                    "Hope your day is going",
-                    2000, // Pause briefly at the end
-                    "Hope your day is going better than expected",
-                    1000, // Pause briefly at the end
-                    "Mine's going pretty well",
-                    2000,
-                    "Mine's going pretty well because you're here",
-                    2000,
-                    "Mine's going pretty well because you're here :)", // Type the full phrase
-                    500, // Final pause to show ':)'
-                    ":)",
-                  ]}
-                  wrapper="span" // Use span to avoid block layout issues
-                  speed={50} // Typing speed
-                  className="max-w-[600px] md:text-xl block" // Apply styles and ensure block display
-                  repeat={0} // Type only once
-                  cursor={true} // Show blinking cursor during animation
-                />
-              </BlurFade>
-            </div>
-            <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-48 border">
-                {" "}
-                {/* Increased size */}
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
-          </div>
-        </div>
-        <div className="mx-auto w-full max-w-lg">
-          <BlurFade delay={BLUR_FADE_DELAY}>
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Quote
-              </div>
-              {mainPageQuote && (
-                <blockquote className="text-xs">
-                  &quot;{mainPageQuote.quote}&quot;
-                  {mainPageQuote.author && (
-                    <span className="block text-right text-muted-foreground/80">
-                      - {mainPageQuote.author}
-                    </span>
-                  )}
-                </blockquote>
-              )}
-            </div>
-          </BlurFade>
-        </div>
-      </section>
     </main>
   );
 }
