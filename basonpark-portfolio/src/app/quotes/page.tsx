@@ -92,7 +92,7 @@ export default function QuotesPage() {
       `}</style>
 
       <h1 className="text-5xl verona-serial-bold mb-12 text-center text-slate-800">
-        some quotes that may <br /> change the way you think
+        some quotes that <br /> you may like
       </h1>
 
       {/* Favorite Quotes */}

@@ -16,18 +16,19 @@ export const ScrollBoldText: React.FC<ScrollBoldTextProps> = ({ text, id }) => {
     >
       {" "}
       {/* Added max-w-3xl and mx-auto */}
-      {text.split("").map((char, index) => (
-        <span
-          key={index}
-          className=" scroll-bold-char inline-block"
-          style={{ fontWeight: 700, color: "#b7b0ad" }}
-        >
-          {" "}
-          {/* Start Bold */}
-          {char === " " ? "\u00A0" : char}{" "}
-          {/* Use non-breaking space for spaces */}
-        </span>
-      ))}
+      {
+        // Split the input text into individual characters and map over them
+        text.split("").map((char, index) => (
+          <span
+            key={index}
+            className=" scroll-bold-char inline-block" // Added class for easier targeting if needed
+            style={{ fontWeight: 700, lineHeight: 1.6, color: "#ffffff" }} // Added line-height, removed color
+          >
+            {char === " " ? "\u00A0" : char}{" "}
+            {/* Replace space with non-breaking space */}
+          </span>
+        ))
+      }
     </p>
   );
 };

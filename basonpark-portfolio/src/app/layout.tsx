@@ -78,7 +78,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             <div className="relative flex min-h-screen flex-col">
-              <div className="flex-1">{children}</div>
+              {/* Added responsive padding to account for fixed navbar */}
+              <div className="flex-1 pb-24 sm:pb-0 sm:pt-24">{children}</div>
               <NavBar items={navItems} />
               <LayoutEffects /> {/* Include the effects component */}
             </div>

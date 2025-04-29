@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description: "It's like Jason with a B. Welcome to my mindspace. ",
   summary:
-    "This specimen was born in Japan and raised in South Korea. He studied computer science in college, though he forgot a lot of the algorithms when he joined the Korean military. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's poorest country induced in him a mild domain expansion. After graduating, he decided to try out a few more cultures, particularly those in South America and Europe. His current focus is building AI tools that help us discover hidden thought patterns and make better decisions.",
+    "This specimen was born in Japan and raised in South Korea. He studied computer science in college, but he forgot most of the algorithms when he joined the Korean military. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's poorest country induced in him a mild domain expansion. After graduating, he decided to try out a few more cultures, particularly those in South America and Europe. His current focus is building AI tools that help us discover hidden thought patterns and make better decisions.",
   avatarUrl: "/basonpark.png",
 
   skills: [
@@ -51,7 +51,7 @@ export const DATA = {
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "www.linkedin.com/in/basonpark",
+        url: "https://www.linkedin.com/in/basonpark",
         icon: Icons.linkedin,
 
         navbar: true,
@@ -412,5 +412,40 @@ export const DATA = {
     //   image: "",
     //   video: "/videos/ether-guru.mp4",
     // },
+  ],
+  art: [
+    {
+      imageUrl: "/art/placeholder1.jpg", // Replace with actual image path
+      title: "Abstract Forms",
+      year: 2023,
+      dimensions: "30x40 cm",
+      medium: "Acrylic on Canvas",
+      description: "An exploration of color and shape interaction."
+    },
+    {
+      imageUrl: "/art/placeholder2.jpg", // Replace with actual image path
+      title: "City Dreams",
+      year: 2022,
+      dimensions: "50x70 cm",
+      medium: "Oil on Linen",
+      description: "A nocturnal cityscape reflecting urban aspirations."
+    },
+    {
+      imageUrl: "/art/placeholder3.jpg", // Replace with actual image path
+      title: "Serene Landscape",
+      year: 2024,
+      dimensions: "60x40 cm",
+      medium: "Watercolor on Paper",
+      description: "Capturing the tranquility of a misty morning."
+    },
+    {
+      imageUrl: "/art/placeholder4.jpg", // Replace with actual image path
+      title: "Portrait Study",
+      year: 2023,
+      dimensions: "20x25 cm",
+      medium: "Charcoal on Paper",
+      description: "A quick study focusing on light and shadow."
+    }
+    // Add more art pieces here
   ],
 };

@@ -11,7 +11,6 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-import Link from "next/link";
 import { ScrollBoldText } from "@/components/ScrollBoldText";
 import { TypeAnimation } from "react-type-animation";
 import { gsap } from "gsap";
@@ -55,7 +54,7 @@ export default function Page() {
     const boldAnimation = gsap.to(chars, {
       fontWeight: 700,
       color: "#600905",
-      backgroundColor: "#F5D6BA",
+      backgroundColor: "#ffe8df",
       duration: 1,
       stagger: 0.7, // Apply effect sequentially with a slightly faster delay
       ease: "none",
@@ -80,7 +79,7 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-40">
       <section id="hero">
         <QuoteCard />
-        <div className="mx-auto w-full max-w-4xl space-y-8">
+        <div className="mx-auto w-full max-w-4xl space-y-8 mb-32">
           <div className="gap-3 flex items-center mt-14">
             <div className="flex-col flex flex-1 space-y-2">
               {/* Name Typing Animation */}
@@ -145,7 +144,7 @@ export default function Page() {
         className="space-y-8 max-w-[52rem] mx-auto py-10 px-10 rounded-2xl shadow-2xl"
       >
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-4xl mb-2 font-verona font-bold">Origin Story</h2>
+          <h2 className="text-4xl font-bold mb-2">Origin</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           {/* Replace Markdown with ScrollBoldText for character animation */}
@@ -168,15 +167,13 @@ export default function Page() {
                     Check out my latest work
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    I&apos;ve worked projects in AI and blockchain. Here are a
-                    few of my favorites.
+                    My projects often involve AI and blockchain. Here are a few
+                    of my favorites.
                   </p>
                 </div>
               </div>
             </PopUpFadeIn>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-[800px] mx-auto grid-auto-rows-fr">
-              {" "}
-              {/* Increased gap & uniform height */}
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl mx-auto grid-auto-rows-fr"> {/* Increased max-width & uniform height */}
               {DATA.projects.map((project, id) => (
                 <PopUpFadeIn
                   key={project.title}
@@ -337,14 +334,16 @@ export default function Page() {
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                     Get in Touch
                   </h2>
-                  <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Want to chat? Just shoot me a dm{" "}
-                    <Link
+                  <p className=" mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Want to chat? Just{" "}
+                    <a
                       href={DATA.contact.social.LinkedIn.url}
-                      className="text-blue-500 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline"
                     >
-                      with a direct question
-                    </Link>{" "}
+                      shoot me a DM
+                    </a>{" "}
                     and I&apos;ll respond whenever I can.
                   </p>
                 </div>
