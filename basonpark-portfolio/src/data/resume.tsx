@@ -233,7 +233,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/videos/monkeymind.mp4",
+      video: "/videos/monkeymindrec.mp4",
     },
     {
       title: "Prophit",

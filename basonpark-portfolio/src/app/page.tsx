@@ -12,7 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import { quotesData } from "@/data/quotes"; // Import quotes data
-import { ScrollBoldText } from "@/components/ScrollBoldText";
+import { ScrollBoldText } from "@/components/ScrollBoldText"; // Added import
 import { Button } from "@/components/ui/button"; // Import Button for social links
 import { Linkedin, Github, Mail } from "lucide-react"; // Import icons for social links
 import { TypeAnimation } from "react-type-animation";
@@ -23,7 +23,7 @@ import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BLUR_FADE_DELAY = 0.02;
+const BLUR_FADE_DELAY = 0.04;
 
 interface QuoteType {
   quote: string;
@@ -92,6 +92,10 @@ export default function Page() {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+  // Separate Monkey Mind project from others
+  const monkeyMindProject = DATA.projects.find(p => p.title === "Monkey Mind");
+  const otherProjects = DATA.projects.filter(p => p.title !== "Monkey Mind");
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-40">
@@ -191,20 +195,36 @@ export default function Page() {
                 </div>
               </div>
             </PopUpFadeIn>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl mx-auto grid-auto-rows-fr">
-              {" "}
-              {/* Increased max-width & uniform height */}
-              {DATA.projects.map((project, id) => (
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
+              {/* Render Monkey Mind Project first, spanning full width on sm+ screens */}
+              {monkeyMindProject && (
+                <PopUpFadeIn
+                  key={monkeyMindProject.title}
+                  delay={BLUR_FADE_DELAY * 12}
+                  className="sm:col-span-2" // Make it span 2 columns
+                >
+                  <ProjectCard
+                    isFeatured={true} // Pass the featured prop
+                    href={monkeyMindProject.href}
+                    key={monkeyMindProject.title}
+                    title={monkeyMindProject.title}
+                    description={monkeyMindProject.description}
+                    tags={monkeyMindProject.technologies}
+                    image={monkeyMindProject.image}
+                    video={monkeyMindProject.video}
+                    links={monkeyMindProject.links}
+                  />
+                </PopUpFadeIn>
+              )}
+
+              {/* Render the rest of the projects */}
+              {otherProjects.map((project, id) => (
                 <PopUpFadeIn
                   key={project.title}
-                  delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-                  // Add margin-top conditionally for specific projects
-                  className={`${
-                    project.title === "High Einbasing" ||
-                    project.title === "Sports Card Tracker"
-                      ? "mt-16"
-                      : ""
-                  }`}
+                  // Adjust delay slightly for sequence after Monkey Mind
+                  delay={BLUR_FADE_DELAY * 12 + 0.05 + id * 0.05}
+                  // Keep existing conditional margin logic if necessary
+                  className={`${project.title === "High Einbasing" || project.title === "Sports Card Tracker" ? "mt-16" : ""}`}
                 >
                   <ProjectCard
                     href={project.href}
