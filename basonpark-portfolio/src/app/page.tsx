@@ -1,20 +1,20 @@
 "use client";
 
 import { HackathonCard } from "@/components/hackathon-card";
-import SlideFadeIn from "@/components/magicui/slide-fade-in"; // Import the new component
-import BlurFade from "@/components/magicui/blur-fade"; // Re-import BlurFade
-import PopUpFadeIn from "@/components/magicui/pop-up-fade-in"; // Import PopUpFadeIn
+import SlideFadeIn from "@/components/magicui/slide-fade-in"; 
+import BlurFade from "@/components/magicui/blur-fade"; 
+import PopUpFadeIn from "@/components/magicui/pop-up-fade-in"; 
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
-import QuoteCard from "@/components/QuoteCard"; // Import the new QuoteCard component
+import QuoteCard from "@/components/QuoteCard"; 
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-import { quotesData } from "@/data/quotes"; // Import quotes data
-import { ScrollBoldText } from "@/components/ScrollBoldText"; // Added import
-import { Button } from "@/components/ui/button"; // Import Button for social links
-import { Linkedin, Github, Mail } from "lucide-react"; // Import icons for social links
+import { quotesData } from "@/data/quotes"; 
+import { ScrollBoldText } from "@/components/ScrollBoldText"; 
+import { Button } from "@/components/ui/button"; 
+import { Linkedin, Github, Mail } from "lucide-react"; 
 import { TypeAnimation } from "react-type-animation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,59 +43,57 @@ export default function Page() {
     }
   }, []);
 
-  // Define color map for language badges with gradients
   const languageColors: { [key: string]: string } = {
-    English: "bg-gradient-to-br from-blue-600 via-white to-red-600 text-black", // Blue -> White -> Red (needs black text)
-    Korean: "bg-gradient-to-br from-red-600 to-blue-600 text-white", // Red -> Blue
-    Spanish: "bg-gradient-to-br from-yellow-400 to-red-600 text-black", // Yellow -> Red (needs black text)
-    Japanese: "bg-gradient-to-br from-red-600 to-white text-black", // Red -> White (needs black text)
-    Chinese: "bg-gradient-to-br from-red-600 to-yellow-100 text-black", // Red -> Yellow (needs black text)
-    Italian: "bg-gradient-to-br from-green-600 via-white to-red-600 text-black", // Green -> White -> Red (needs black text)
-    // Add more languages and colors as needed
+    English: "bg-gradient-to-br from-blue-600 via-white to-red-600 text-black", 
+    Korean: "bg-gradient-to-br from-red-600 to-blue-600 text-white", 
+    Spanish: "bg-gradient-to-br from-yellow-400 to-red-600 text-black", 
+    Japanese: "bg-gradient-to-br from-red-600 to-white text-black", 
+    Chinese: "bg-gradient-to-br from-red-600 to-yellow-100 text-black", 
+    Italian: "bg-gradient-to-br from-green-600 via-white to-red-600 text-black", 
   };
 
   useEffect(() => {
-    // GSAP Background Animation
     const bgAnimation = gsap.to("main", {
-      // Target the main element// Target background color (light gray)
-      ease: "none", // Linear transition
+      ease: "none", 
       scrollTrigger: {
-        trigger: "main", // Trigger animation based on the main element
-        start: "top top", // Start when the top of main hits the top of the viewport
-        end: "bottom bottom", // End when the bottom of main hits the bottom of the viewport
-        scrub: true, // Smoothly animate based on scroll position
+        trigger: "main", 
+        start: "top top", 
+        end: "bottom bottom", 
+        scrub: true, 
       },
     });
 
-    // Character Bolding Animation for Summary
     const chars = gsap.utils.toArray("#about-summary .scroll-bold-char");
-    const boldAnimation = gsap.to(chars, {
-      fontWeight: 700,
-      color: "#600905",
-      backgroundColor: "#ffe8df",
-      duration: 1,
-      stagger: 0.7, // Apply effect sequentially with a slightly faster delay
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#about-summary", // Element containing the text
-        start: "top bottom-=200", // Start when top is 200px from viewport bottom
-        end: "bottom center", // End when bottom reaches viewport center
-        scrub: true, // Directly link animation to scroll
+    const highlightAnimation = gsap.fromTo(
+      chars,
+      {
+        color: "#ffffff",
+        backgroundColor: "transparent", 
       },
-    });
+      {
+        color: "#2c2c44", 
+        backgroundColor: "#ffe8df", 
+        duration: 1, 
+        stagger: 0.7, 
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#about-summary",
+          start: "top bottom-=200",
+          end: "bottom center",
+          scrub: true,
+        },
+      }
+    );
 
-    // Cleanup function to kill the animation and ScrollTrigger instance on unmount
     return () => {
       bgAnimation.kill();
-      // New cleanup for bold animation
-      if (boldAnimation) boldAnimation.kill();
+      if (highlightAnimation) highlightAnimation.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
-  // Separate Monkey Mind project from others
-  const monkeyMindProject = DATA.projects.find(p => p.title === "Monkey Mind");
-  const otherProjects = DATA.projects.filter(p => p.title !== "Monkey Mind");
+  const monkeyMindProject = DATA.projects.find((p) => p.title === "Monkey Mind");
+  const otherProjects = DATA.projects.filter((p) => p.title !== "Monkey Mind");
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-40">
@@ -104,56 +102,50 @@ export default function Page() {
         <div className="mx-auto w-full max-w-4xl space-y-8 mb-32">
           <div className="gap-3 flex items-center mt-14">
             <div className="flex-col flex flex-1 space-y-2">
-              {/* Name Typing Animation */}
               <BlurFade delay={BLUR_FADE_DELAY}>
                 <TypeAnimation
                   sequence={[
-                    `Hi 👋 I'm ${DATA.name.split(" ")[0]}`, // Name text
-                    500, // Pause after name
+                    `Hi 👋 I'm ${DATA.name.split(" ")[0]}`, 
+                    500, 
                   ]}
-                  wrapper="h1" // Use h1 for semantic heading
-                  speed={50} // Typing speed
-                  className="font-verona text-4xl font-bold tracking-tighter sm:text-5xl xl:text-7xl/none block" // Apply styles
-                  repeat={0} // Type once
-                  cursor={false} // Hide cursor
+                  wrapper="h1" 
+                  speed={50} 
+                  className="font-verona text-5xl font-bold tracking-tighter sm:text-6xl xl:text-7xl none block" 
+                  repeat={0} 
+                  cursor={false} 
                 />
               </BlurFade>
 
-              {/* Description Typing Animation (Sequenced) */}
               <BlurFade delay={BLUR_FADE_DELAY} className="min-h-8">
-                {" "}
-                {/* Reserve vertical space */}
                 <TypeAnimation
                   sequence={[
-                    2000, // Initial delay (wait for name)
-                    "It's like Jason with a B.", // Type part 1
-                    3000, // Pause for 1 second
-                    " Welcome to my mindspace.", // Type part 2 (Note: uses the actual text, ensure it matches DATA.description)
-                    1000, // Pause briefly at the end
+                    2000, 
+                    "It's like Jason with a B", 
+                    3000, 
+                    " Welcome to my mindspace", 
+                    1000, 
                     "Hope your day is going",
-                    2000, // Pause briefly at the end
+                    2000, 
                     "Hope your day is going better than expected",
-                    1000, // Pause briefly at the end
+                    1000, 
                     "Mine's going pretty well",
                     2000,
                     "Mine's going pretty well because you're here",
                     2000,
-                    "Mine's going pretty well because you're here :)", // Type the full phrase
-                    500, // Final pause to show ':)'
+                    "Mine's going pretty well because you're here :)", 
+                    500, 
                     ":)",
                   ]}
-                  wrapper="span" // Use span to avoid block layout issues
-                  speed={50} // Typing speed
-                  className="max-w-[600px] md:text-xl block" // Apply styles and ensure block display
-                  repeat={0} // Type only once
-                  cursor={true} // Show blinking cursor during animation
+                  wrapper="span" 
+                  speed={50} 
+                  className="max-w-[600px] md:text-xl block" 
+                  repeat={0} 
+                  cursor={true} 
                 />
               </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-48 border">
-                {" "}
-                {/* Increased size */}
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
@@ -166,18 +158,17 @@ export default function Page() {
         className="space-y-8 max-w-[52rem] mx-auto py-10 px-10 rounded-2xl shadow-2xl"
       >
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-4xl font-bold mb-2">Origin</h2>
+          <h2 className="text-4xl font-bold mb-2 tracking-tighter bg-gradient-to-br from-slate-600 to-slate-900 bg-clip-text text-transparent">
+            Origin
+          </h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          {/* Replace Markdown with ScrollBoldText for character animation */}
           <ScrollBoldText id="about-summary" text={DATA.summary} />
         </BlurFade>
       </section>
 
       <div>
         <section id="projects" className="mt-20">
-          {" "}
-          {/* Added top margin */}
           <div className="space-y-12 w-full py-12">
             <PopUpFadeIn delay={BLUR_FADE_DELAY * 11}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -185,7 +176,7 @@ export default function Page() {
                   <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                     My Projects
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  <h2 className="text-3xl pb-2 font-bold tracking-tighter sm:text-5xl bg-gradient-to-br from-slate-600/90 to-slate-900 bg-clip-text text-transparent">
                     Check out my latest work
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -195,16 +186,15 @@ export default function Page() {
                 </div>
               </div>
             </PopUpFadeIn>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
-              {/* Render Monkey Mind Project first, spanning full width on sm+ screens */}
+            <div className="flex flex-col gap-6 max-w-4xl mx-auto space-y-10">
               {monkeyMindProject && (
                 <PopUpFadeIn
                   key={monkeyMindProject.title}
                   delay={BLUR_FADE_DELAY * 12}
-                  className="sm:col-span-2" // Make it span 2 columns
+                  className="sm:col-span-2"
                 >
                   <ProjectCard
-                    isFeatured={true} // Pass the featured prop
+                    isFeatured={true}
                     href={monkeyMindProject.href}
                     key={monkeyMindProject.title}
                     title={monkeyMindProject.title}
@@ -212,18 +202,16 @@ export default function Page() {
                     tags={monkeyMindProject.technologies}
                     image={monkeyMindProject.image}
                     video={monkeyMindProject.video}
+                    gradient={monkeyMindProject.gradient}
                     links={monkeyMindProject.links}
                   />
                 </PopUpFadeIn>
               )}
 
-              {/* Render the rest of the projects */}
               {otherProjects.map((project, id) => (
                 <PopUpFadeIn
                   key={project.title}
-                  // Adjust delay slightly for sequence after Monkey Mind
                   delay={BLUR_FADE_DELAY * 12 + 0.05 + id * 0.05}
-                  // Keep existing conditional margin logic if necessary
                   className={`${project.title === "High Einbasing" || project.title === "Sports Card Tracker" ? "mt-16" : ""}`}
                 >
                   <ProjectCard
@@ -234,6 +222,7 @@ export default function Page() {
                     tags={project.technologies}
                     image={project.image}
                     video={project.video}
+                    gradient={project.gradient}
                     links={project.links}
                   />
                 </PopUpFadeIn>
@@ -256,7 +245,7 @@ export default function Page() {
                   >
                     <Badge
                       key={skill}
-                      variant="default" // Reverted variant to default
+                      variant="default"
                       className="text-sm font-medium"
                     >
                       {skill}
@@ -344,8 +333,6 @@ export default function Page() {
                 <h2 className="text-xl font-bold">Languages</h2>
               </SlideFadeIn>
               <div className="flex flex-wrap gap-2">
-                {" "}
-                {/* Increased gap */}
                 {DATA.languages.map((language, id) => (
                   <SlideFadeIn
                     key={language}
@@ -388,10 +375,7 @@ export default function Page() {
                   </p>
                 </div>
               </BlurFade>
-              {/* Social Links Section */}
               <section id="contact-socials" className="pb-16">
-                {" "}
-                {/* Added padding */}
                 <div className="flex justify-center items-center gap-4">
                   <BlurFade delay={BLUR_FADE_DELAY * 15}>
                     <a

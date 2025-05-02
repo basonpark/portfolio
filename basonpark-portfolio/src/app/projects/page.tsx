@@ -6,6 +6,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
+  CardFooter
 } from "@/components/ui/card";
 import { DATA } from "@/data/resume";
 import React, { useState, useEffect, useRef } from "react";
@@ -36,6 +37,7 @@ interface Project {
   video?: string;
   image?: string;
   technologies?: string[]; // Corrected field name
+  websiteUrl?: string;
 }
 
 // Export a custom background style for the projects page
@@ -238,10 +240,10 @@ export default function ProjectsPage() {
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto flex flex-col px-4">
                   {/* Technologies Badges */}
                   {project.technologies && project.technologies.length > 0 && (
-                    <div className="mt-4 mb-4 flex flex-wrap gap-2">
+                    <div className="mb-4 flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <Badge
                           key={tech}
@@ -252,47 +254,46 @@ export default function ProjectsPage() {
                       ))}
                     </div>
                   )}
-
-                  {/* Links Buttons */}
-                  {(project.href ||
-                    (project.links && project.links.length > 0)) && (
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {project.href && (
-                        <Button
-                          asChild
-                          className="bg-[#BC8F8F] hover:bg-[#8D6E63] text-white border-none"
-                        >
-                          <a
-                            href={project.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            View Project
-                          </a>
-                        </Button>
-                      )}
-                      {project.links &&
-                        project.links
-                          .filter((link) => link.type !== "Source")
-                          .map((link) => (
-                            <Button
-                              key={link.type}
-                              asChild
-                              variant="outline"
-                              className="border-[#F5D6BA] text-black hover:bg-[rgb(255,224,178)] hover:border-[#BC8F8F]"
-                            >
-                              <a
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {link.type}
-                              </a>
-                            </Button>
-                          ))}
-                    </div>
-                  )}
                 </CardContent>
+                <CardFooter className="px-4 pb-4">
+                  <div className="flex flex-row flex-wrap items-start gap-2">
+                    {/* Primary button linking to the live website */}
+                    {project.websiteUrl && (
+                      <Button
+                        className="h-8 gap-1 bg-gradient-to-r from-orange-300 via-pink-300 to-yellow-200 border border-orange-400 text-gray-800 hover:text-black hover:opacity-90"
+                        asChild
+                      >
+                        <a
+                          href={project.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span className="mr-1">→</span> Visit Website
+                        </a>
+                      </Button>
+                    )}
+                    {/* Secondary buttons for other links (e.g., GitHub) */}
+                    {project.links &&
+                      project.links
+                        .filter((link) => link.type !== "Source")
+                        .map((link) => (
+                          <Button
+                            key={link.type}
+                            asChild
+                            variant="outline"
+                            className="border-[#F5D6BA] text-black hover:bg-[rgb(255,224,178)] hover:border-[#BC8F8F]"
+                          >
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {link.type}
+                            </a>
+                          </Button>
+                        ))}
+                  </div>
+                </CardFooter>
               </Card>
             );
           })}

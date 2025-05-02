@@ -6,6 +6,7 @@ import { DATA } from "@/data/resume";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -47,41 +48,12 @@ export default function ArtPage() {
 
     // --- GSAP Panel Entrance Animation Logic ---
     const panelAnimations: globalThis.ScrollTrigger[] = []; // Store individual animation triggers for cleanup
-
-    panels.forEach((panel, index) => {
-      const isOdd = index % 2 !== 0;
-      gsap.set(panel, { autoAlpha: 0, xPercent: isOdd ? 50 : -50 }); // Initial state: invisible, offset left/right
-
-      const animTrigger = ScrollTrigger.create({
-        trigger: panel,
-        start: "top bottom-=100", // Trigger slightly before bottom hits the top
-        end: "center center", // Optional: end when center hits center
-        // markers: true, // Uncomment for debugging
-        onEnter: () =>
-          gsap.to(panel, {
-            autoAlpha: 1,
-            xPercent: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            overwrite: "auto",
-          }),
-        onLeaveBack: () =>
-          gsap.to(panel, {
-            autoAlpha: 0,
-            xPercent: isOdd ? 50 : -50,
-            duration: 0.4,
-            ease: "power1.in",
-            overwrite: "auto",
-          }),
-        invalidateOnRefresh: true, // Recalculate on resize
-      });
-      panelAnimations.push(animTrigger);
-    });
     // --- End GSAP Panel Entrance Animation Logic ---
 
     // Cleanup function
     return () => {
-      if (snapTrigger) {
+      // Kill the scroll trigger instances
+      if (snapTrigger) { // Check if snapTrigger exists before killing
         snapTrigger.kill();
       }
       panelAnimations.forEach((trigger) => trigger.kill()); // Kill individual animations
@@ -106,11 +78,25 @@ export default function ArtPage() {
       `}</style>
       {/* Title Section */}
       <div className="text-center pt-20 px-4">
-        <h1 className="verona-serial-bold text-4xl sm:text-5xl md:text-6xl text-slate-800">
+        <motion.h1
+          initial={{ x: "-100%", opacity: 0 }} // Start off-screen left, invisible
+          animate={{ x: 0, opacity: 1 }} // Animate to final position, visible
+          transition={{
+            type: "spring",
+            stiffness: 300, // Controls spring tightness
+            damping: 8, // Controls bounce resistance (lower = more bounce)
+            mass: 2, // Affects overshoot
+            delay: 0.1, // Small delay before starting
+          }}
+          className="verona-serial-bold text-4xl sm:text-5xl md:text-6xl text-slate-800"
+        >
           keepers of the funk
-        </h1>
+        </motion.h1>
         <p className="text-xl verona-serial-bold text-gray-600">
           some works for sale
+        </p>
+        <p className="text-xs verona-serial-bold text-gray-500">
+          basonpark@gmail.com
         </p>
       </div>
 
@@ -119,8 +105,8 @@ export default function ArtPage() {
         {DATA.art.map((artItem, index) => (
           <div
             key={index}
-            // Panel takes full viewport height, centers content. Added opacity-0 for initial state before GSAP
-            className="art-panel flex h-screen w-full flex-col items-center justify-center p-6 opacity-0"
+            // Panel takes full viewport height, centers content.
+            className="art-panel flex h-screen w-full flex-col items-center justify-center p-6"
           >
             {/* Image container: Increased height */}
             <div className="relative mb-4 h-3/4 w-full max-w-4xl">

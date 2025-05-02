@@ -33,17 +33,18 @@ const QuoteCard: React.FC = () => {
     return () => clearTimeout(initialTimeout);
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
-  const currentQuote: QuoteData = quotesData[currentQuoteIndex % quotesData.length];
+  const currentQuote: QuoteData =
+    quotesData[currentQuoteIndex % quotesData.length];
 
   return (
     <Link href="/quotes" passHref>
       {/* This outer div spans the full viewport width */}
       <div className="my-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
         {/* This inner div contains the styling, padding, and a new max-width independent of the main content */}
-        <div
-          className="p-4 px-8 rounded-lg bg-card text-card-foreground cursor-pointer max-w-6xl mx-auto h-48 flex flex-col justify-center"
-        >
-          <AnimatePresence mode="wait"> {/* Use mode='wait' for clean exit/enter */}
+        <div className="p-4 px-8 rounded-lg bg-card text-card-foreground cursor-pointer max-w-6xl mx-auto h-48 flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            {" "}
+            {/* Use mode='wait' for clean exit/enter */}
             <motion.blockquote
               key={currentQuoteIndex} // Key change triggers animation
               className="text-center"
@@ -52,7 +53,7 @@ const QuoteCard: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <p className="font-bold text-3xl">
+              <p className="font-bold text-3xl bg-gradient-to-br from-slate-600 to-slate-900 bg-clip-text text-transparent">
                 &ldquo;{currentQuote.quote}&rdquo;
               </p>
               <footer className="text-center text-sm text-muted-foreground mt-2 font-bold">

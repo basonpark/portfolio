@@ -9,13 +9,14 @@ import { Icons } from "@/components/icons";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Import chevron icons
 import { QuoteData, quotesData as importedQuotesData } from "@/data/quotes"; // Import quotes data
 import { veronaSerial } from "../fonts";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 // Define QuoteType based on DATA structure
 interface QuoteType {
   quote: string;
   author?: string;
   source?: string; // Add optional source
-  link?: string;   // Add optional link
+  link?: string; // Add optional link
   favorite?: boolean;
 }
 
@@ -39,9 +40,15 @@ export default function QuotesPage() {
   // State
   const [currentPage, setCurrentPage] = useState(1);
   const [quotesData] = useState<QuoteType[]>(importedQuotesData); // Keep original data immutable
-  const [randomQuoteMoment, setRandomQuoteMoment] = useState<QuoteType | null>(null);
-  const [selectedQuotesRotation, setSelectedQuotesRotation] = useState<QuoteType[]>([]);
-  const [shuffledRemainingQuotes, setShuffledRemainingQuotes] = useState<QuoteType[]>([]);
+  const [randomQuoteMoment, setRandomQuoteMoment] = useState<QuoteType | null>(
+    null
+  );
+  const [selectedQuotesRotation, setSelectedQuotesRotation] = useState<
+    QuoteType[]
+  >([]);
+  const [shuffledRemainingQuotes, setShuffledRemainingQuotes] = useState<
+    QuoteType[]
+  >([]);
 
   // Constants
   const QUOTES_PER_PAGE = 9; // Or your desired number
@@ -58,30 +65,41 @@ export default function QuotesPage() {
 
     // 2. Select "Quote of the Moment" from the pool
     if (selectionPool.length > 0) {
-      const randomIndexMoment = Math.floor(Math.random() * selectionPool.length);
+      const randomIndexMoment = Math.floor(
+        Math.random() * selectionPool.length
+      );
       setRandomQuoteMoment(selectionPool[randomIndexMoment]);
     }
 
     // 3. Select and shuffle "Selected Quotes" from the pool
     const shuffledPool = shuffle([...selectionPool]); // Shuffle a copy
-    const selected = shuffledPool.slice(0, Math.min(NUM_SELECTED_ROTATION, shuffledPool.length)); // Ensure we don't slice beyond array length
+    const selected = shuffledPool.slice(
+      0,
+      Math.min(NUM_SELECTED_ROTATION, shuffledPool.length)
+    ); // Ensure we don't slice beyond array length
     setSelectedQuotesRotation(selected);
 
     // 4. Determine remaining quotes
-    const selectedSet = new Set(selected.map(q => q.quote)); // Use quote text for uniqueness check
-    const remainingFromPool = selectionPool.filter((q: QuoteType) => !selectedSet.has(q.quote));
+    const selectedSet = new Set(selected.map((q) => q.quote)); // Use quote text for uniqueness check
+    const remainingFromPool = selectionPool.filter(
+      (q: QuoteType) => !selectedSet.has(q.quote)
+    );
     const allRemaining = [...remainingFromPool, ...quotesAfterPool];
     setShuffledRemainingQuotes(shuffle(allRemaining));
-
   }, [quotesData]); // Depend on quotesData
 
   // Calculate total pages based on shuffled *remaining* quotes
-  const totalPages = Math.ceil(shuffledRemainingQuotes.length / QUOTES_PER_PAGE);
+  const totalPages = Math.ceil(
+    shuffledRemainingQuotes.length / QUOTES_PER_PAGE
+  );
 
   // Get quotes for the current page from the shuffled *remaining* list
   const getPaginatedQuotes = () => {
     const startIndex = (currentPage - 1) * QUOTES_PER_PAGE;
-    return shuffledRemainingQuotes.slice(startIndex, startIndex + QUOTES_PER_PAGE);
+    return shuffledRemainingQuotes.slice(
+      startIndex,
+      startIndex + QUOTES_PER_PAGE
+    );
   };
 
   // Handle page change
@@ -146,15 +164,43 @@ export default function QuotesPage() {
         }
       `}</style>
 
-      <h1 className="text-5xl verona-serial-bold mb-16 text-center text-slate-800">
-        some quotes <br /> you may like
-      </h1>
+      {/* Large Double Quote Symbol */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-[9rem] font-serif text-center h-28 bg-gradient-to-br from-slate-700/90 to-slate-900 bg-clip-text text-transparent"
+      >
+        &ldquo;
+      </motion.p>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }} // Initial state: hidden and slightly down
+        animate={{ opacity: 1, y: 0 }} // Animate to: visible and original position
+        transition={{ duration: 0.6 }} // Animation duration
+        className="text-5xl verona-serial-bold mb-16 text-center pb-2 bg-gradient-to-br from-slate-700/90 to-slate-900 bg-clip-text text-transparent"
+      >
+        some quotes <br /> you may{" "}
+        <motion.span
+          initial={{ scale: 1 }} // Initial state for the span
+          animate={{ scale: [1, 1.08, 1] }} // Animate scale: 1 -> 1.08 -> 1
+          transition={{
+            delay: 0.7, // Start after the main heading fades in
+            duration: 0.1,
+            repeat: 2, // Repeat the pulse once (total 2 pulses)
+            repeatType: "reverse", // Go back down smoothly
+          }}
+          style={{ display: "inline-block" }} // Needed for transform animations like scale
+        >
+          like
+        </motion.span>
+      </motion.h1>
 
       {/* Random Quote Section */}
       {randomQuoteMoment && (
-        <div className="mb-20">
-          <h2 className="text-2xl mb-6 verona-serial-bold text-[#7c6c62]">
-            Quote of the Moment
+        <div className="mb-20 my-10">
+          <h2 className="text-2xl mb-6 verona-serial-bold text-[#78403f]">
+            quote of the moment
           </h2>
           <SlideFadeIn delay={0}>
             <Card className="bg-white border border-[#d5c9bb]/50 shadow-lg hover:shadow-xl quote-card">
@@ -176,7 +222,9 @@ export default function QuotesPage() {
                       ({randomQuoteMoment.source})
                     </Link>
                   ) : randomQuoteMoment.source ? (
-                    <span className="ml-1 italic">({randomQuoteMoment.source})</span>
+                    <span className="ml-1 italic">
+                      ({randomQuoteMoment.source})
+                    </span>
                   ) : null}
                 </CardFooter>
               )}
@@ -187,12 +235,15 @@ export default function QuotesPage() {
 
       {/* Selected Quotes (Rotation) */}
       <div className="mb-20">
-        <h2 className="text-2xl mb-6 verona-serial-bold text-[#7c6c62]">
-          Selected Quotes
+        <h2 className="text-2xl mb-6 verona-serial-bold text-[#78403f]">
+          selected quotes
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {selectedQuotesRotation.map((quote, index) => (
-            <SlideFadeIn key={`selected-${index}`} delay={BLUR_FADE_DELAY * index}>
+            <SlideFadeIn
+              key={`selected-${index}`}
+              delay={BLUR_FADE_DELAY * index}
+            >
               <Card className="bg-white border border-[#d5c9bb]/50 shadow-lg hover:shadow-2xl quote-card">
                 <CardContent className="p-6">
                   <blockquote className="text-xl figtree-quote-font">
@@ -202,18 +253,18 @@ export default function QuotesPage() {
                 {(quote.author || quote.source) && (
                   <CardFooter className="text-sm text-gray-600 justify-end p-4 pt-0">
                     — {quote.author || "Unknown"}
-                     {quote.source && quote.link ? (
-                       <Link
-                         href={quote.link}
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         className="ml-1 italic hover:underline"
-                       >
-                         ({quote.source})
-                       </Link>
-                     ) : quote.source ? (
-                       <span className="ml-1 italic">({quote.source})</span>
-                     ) : null}
+                    {quote.source && quote.link ? (
+                      <Link
+                        href={quote.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-1 italic hover:underline"
+                      >
+                        ({quote.source})
+                      </Link>
+                    ) : quote.source ? (
+                      <span className="ml-1 italic">({quote.source})</span>
+                    ) : null}
                   </CardFooter>
                 )}
               </Card>
@@ -225,8 +276,8 @@ export default function QuotesPage() {
       {/* More Quotes (Paginated Remaining) */}
       {shuffledRemainingQuotes.length > 0 && (
         <div>
-          <h2 className="text-2xl mb-6 verona-serial-bold text-[#7c6c62]">
-            More Quotes
+          <h2 className="text-2xl mb-6 verona-serial-bold text-[#78403f]">
+            more quotes
           </h2>
           <div className="space-y-5 mb-8">
             {getPaginatedQuotes().map((quote, index) => (
@@ -242,19 +293,19 @@ export default function QuotesPage() {
                   </CardContent>
                   {(quote.author || quote.source) && (
                     <CardFooter className="text-sm text-gray-600 justify-end p-4 pt-0">
-                       — {quote.author || "Unknown"}
-                       {quote.source && quote.link ? (
-                         <Link
-                           href={quote.link}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="ml-1 italic hover:underline"
-                         >
-                           ({quote.source})
-                         </Link>
-                       ) : quote.source ? (
-                         <span className="ml-1 italic">({quote.source})</span>
-                       ) : null}
+                      — {quote.author || "Unknown"}
+                      {quote.source && quote.link ? (
+                        <Link
+                          href={quote.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-1 italic hover:underline"
+                        >
+                          ({quote.source})
+                        </Link>
+                      ) : quote.source ? (
+                        <span className="ml-1 italic">({quote.source})</span>
+                      ) : null}
                     </CardFooter>
                   )}
                 </Card>

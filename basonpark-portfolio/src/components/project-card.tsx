@@ -24,9 +24,11 @@ interface Props {
     icon: React.ReactNode;
     type: string;
     href: string;
+    gradient?: string;
   }[];
   className?: string;
   isFeatured?: boolean;
+  gradient?: string;
 }
 
 export function ProjectCard({
@@ -41,57 +43,77 @@ export function ProjectCard({
   links,
   className,
   isFeatured,
+  gradient,
 }: Props) {
   return (
     <Card
       className={cn(
-        "flex flex-col overflow-hidden border-muted bg-card p-4 rounded-lg shadow-xl h-full",
-        isFeatured &&
-          "mb-4 p-10 bg-gradient-to-br from-zinc-400 to-zinc-100 shadow-2xl"
+        "flex flex-col overflow-hidden border-muted rounded-lg shadow-xl h-full",
+        "mb-4 p-10 shadow-2xl",
+        gradient ? gradient : "bg-gradient-to-br from-zinc-400 to-zinc-100"
       )}
     >
-      <Link
-        href={href || "#"}
-        className={cn("block cursor-pointer", className)}
-      >
-        {video && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="mb-4 pointer-events-none mx-auto h-100 w-full object-cover object-top rounded-md"
-          />
-        )}
-        {image && (
-          <Image
-            src={image}
-            alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
-          />
-        )}
-      </Link>
+      {/* Media Section: Render image or video, wrap with Link if href exists */}
+      {(video || image) && (
+        href ? (
+          <Link href={href} className={cn("block cursor-pointer", className)}>
+            {video && (
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="mb-4 pointer-events-none mx-auto h-100 w-full object-cover object-top rounded-md"
+              />
+            )}
+            {image && !video && (
+              <Image
+                src={image}
+                alt={title}
+                width={500}
+                height={300}
+                className="h-40 w-full overflow-hidden object-cover object-top"
+              />
+            )}
+          </Link>
+        ) : (
+          <div className={className}> {/* Container if no href */}
+            {video && (
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="mb-4 pointer-events-none mx-auto h-100 w-full object-cover object-top rounded-md"
+              />
+            )}
+            {image && !video && (
+              <Image
+                src={image}
+                alt={title}
+                width={500}
+                height={300}
+                className="h-40 w-full overflow-hidden object-cover object-top"
+              />
+            )}
+          </div>
+        )
+      )}
+
       <CardHeader className="px-2 mb-2">
         <div className="space-y-1">
           <CardTitle
             className={cn(
-              "mt-1 text-base",
-              isFeatured && "text-lg sm:text-3xl"
+              "mt-1 text-xl sm:text-4xl bg-gradient-to-br from-slate-700 to-slate-900 text-transparent bg-clip-text"
             )}
           >
             {title}
           </CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
-          <div className="hidden font-sans text-xs underline print:visible">
-            {link?.replace("https://", "").replace("www.", "").replace("/", "")}
-          </div>
           <Markdown
             className={cn(
-              "prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert",
-              isFeatured && "text-black/90 text-md sm:text-md"
+              "prose max-w-full text-pretty font-sans text-md text-slate-700 dark:prose-invert"
             )}
           >
             {description}

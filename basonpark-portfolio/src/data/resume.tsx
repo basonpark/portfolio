@@ -9,29 +9,37 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description: "It's like Jason with a B. Welcome to my mindspace. ",
   summary:
-    "This specimen was born in Japan and raised in South Korea. He studied computer science in college, but he forgot most of the algorithms when he joined the Korean military. To escape the monotony, he applied to become a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's poorest country induced in him a mild domain expansion. After graduating, he decided to try out a few more cultures, particularly those in South America and Europe. His current focus is building AI tools that help us discover hidden thought patterns and make better decisions.",
+    "This individual was born in Japan and raised in South Korea. He studied computer science in college, but he forgot some of the algorithms when he joined the Korean military. To spice things up, he applied to become a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's least developed country induced in him a mild domain expansion. After graduating, he decided to try out a few more cultures, particularly those in South America and Europe. His current focus is building AI tools that help us discover hidden thought patterns and strengthen the power of human intuition.",
   avatarUrl: "/basonpark.png",
 
   skills: [
+    "Next.js",
+    "Typescript",
+    "React",
     "Solidity",
     "Hardhat",
     "Foundry",
-    "React",
-    "Next.js",
-    "Typescript",
     "Javascript",
     "Node.js",
     "Python",
-    "Postgres",
+    "PostgreSQL",
     "SQL",
     "AWS",
     "DevOps",
+    "SysOps",
+    "Bedrock",
     "LangChain",
+    "HuggingFace",
     "Flask",
     "PyTorch",
     "MongoDB",
     "Supabase",
     "Docker",
+    "Framer",
+    "GSAP",
+    "n8n",
+    "Figma",
+    "Webflow",
   ],
   languages: ["English", "Korean", "Spanish", "Japanese", "Chinese", "Italian"],
   navbar: [
@@ -213,6 +221,7 @@ export const DATA = {
       title: "Monkey Mind",
       href: "https://monkeymind.app",
       active: true,
+      gradient: "bg-gradient-to-br from-zinc-400 to-zinc-100",
       description:
         "MonkeyMind is an AI journal that provides us with reflective insights on common thought loops, cognitive biases, and emotional patterns. The aim is to help us enhance our self-awareness and make better decisions by querying our minds.",
       technologies: [
@@ -235,10 +244,39 @@ export const DATA = {
       image: "",
       video: "/videos/monkeymindrec.mp4",
     },
+
+    {
+      title: "EtherLens",
+      href: "https://metana-projects.vercel.app",
+      active: true,
+      gradient: "bg-gradient-to-br from-slate-500/80 to-slate-100",
+      description:
+        "An analytics platform that offers real-time insights into Ethereum network activity with advanced visualizations, focusing on block gas metrics fetched from the Alchemy API.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "Solidity",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Alchemy",
+        "Gas Optimization",
+        "Ethereum Virtual Machine",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://metana-projects.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/videos/etherlens.mp4",
+    },
     {
       title: "Prophit",
       href: "https://prophit-nu.vercel.app/",
       active: true,
+      gradient: "bg-gradient-to-br from-red-100/80 to-indigo-300",
       description:
         "Prophit is prediction market that harnesses the wisdom of collective insights to forecast future events. It lets users create their own markets and uses the Chainlink Oracle to fetch real-time data backed by Polymarket.",
       technologies: [
@@ -270,6 +308,7 @@ export const DATA = {
       title: "Ether Guru",
       href: "https://ether-guru-eta.vercel.app/",
       active: true,
+      gradient: "bg-gradient-to-br from-red-100/80 to-purple-900/60",
       description:
         "Ether Guru is an AI-powered training platform for security professionals who want to master crypto security. It also houses an AI assistant trained on the Solidity documentation.",
       technologies: [
@@ -303,6 +342,7 @@ export const DATA = {
       title: "Lumina Finance",
       href: "https://defi-stablecoin-yield.vercel.app/",
       active: true,
+      gradient: "bg-gradient-to-br from-amber-100/50 to-amber-700/60",
       description:
         "A DeFi stablecoin yield farming application that enables users to earn interest on their crypto assets through a permissionless lending protocol with automated risk management.",
       technologies: [
@@ -330,88 +370,66 @@ export const DATA = {
       image: "",
       video: "/videos/lumina-finance.mp4",
     },
+
     {
-      title: "EtherLens",
-      href: "https://metana-projects.vercel.app",
+      title: "AuditAI",
+      href: "https://auditai-smart-contract.vercel.app/",
       active: true,
+      gradient: "bg-gradient-to-br from-red-100/80 to-red-900/70",
       description:
-        "An analytics platform that offers real-time insights into Ethereum network activity with advanced visualizations, focusing on block gas metrics fetched from the Alchemy API.",
+        "AuditAI is an AI smart contract auditor that takes in solidity code and provides insights into the security and vulnerabilities of the contract. Blockchain developers can get a comprehensive analysis of the risk factors before consulting professional auditors.",
       technologies: [
         "Next.js",
         "Typescript",
-        "Solidity",
+        "Slither",
+        "Mythril",
+        "PostgreSQL",
+        "FastAPI",
         "TailwindCSS",
         "Shadcn UI",
-        "Alchemy",
-        "Gas Optimization",
-        "Ethereum Virtual Machine",
+        "Magic UI",
+        "OpenAI",
       ],
       links: [
         {
           type: "Website",
-          href: "https://metana-projects.vercel.app",
+          href: "https://auditai-smart-contract.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
-      video: "/videos/etherlens.mp4",
+      video: "/videos/auditai.mp4",
     },
 
-    // {
-    //   title: "AI Smart Contract Auditor",
-    //   href: "https://automatic.chat",
-    //   active: true,
-    //   description:
-    //     "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
-    //   technologies: [
-    //     "Next.js",
-    //     "Typescript",
-    //     "PostgreSQL",
-    //     "Prisma",
-    //     "TailwindCSS",
-    //     "Shadcn UI",
-    //     "Magic UI",
-    //     "Stripe",
-    //     "Cloudflare Workers",
-    //   ],
-    //   links: [
-    //     {
-    //       type: "Website",
-    //       href: "https://automatic.chat",
-    //       icon: <Icons.globe className="size-3" />,
-    //     },
-    //   ],
-    //   image: "",
-    //   video:
-    //     "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
-    // },
-
-    // {
-    //   title: "Dao Governance",
-    //   href: "https://dao-governance-d-app.vercel.app/",
-    //   active: true,
-    //   description:
-    //     "A decentralized governance platform that enables DAOs to transparently manage proposals, voting, and treasury functions with on-chain execution capabilities.",
-    //   technologies: [
-    //     "Next.js",
-    //     "Typescript",
-    //     "Solidity",
-    //     "Ethers.js",
-    //     "Hardhat",
-    //     "TailwindCSS",
-    //     "Shadcn UI",
-    //     "IPFS",
-    //   ],
-    //   links: [
-    //     {
-    //       type: "Website",
-    //       href: "https://dao-governance-d-app.vercel.app/",
-    //       icon: <Icons.globe className="size-3" />,
-    //     },
-    //   ],
-    //   image: "",
-    //   video: "/videos/ether-guru.mp4",
-    // },
+    {
+      title: "Governance",
+      href: "https://dao-governance-d-app.vercel.app/",
+      active: true,
+      gradient: "bg-gradient-to-br from-teal-100/50 to-teal-800/50",
+      description:
+        "A decentralized governance platform that enables DAOs to transparently manage proposals, voting, and treasury functions with on-chain execution capabilities.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "Solidity",
+        "Ethers.js",
+        "ERC-20",
+        "Hardhat",
+        "TailwindCSS",
+        "Shadcn UI",
+        "DAO",
+        "v0",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://dao-governance-d-app.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/videos/daogovernance.mp4",
+    },
   ],
   art: [
     {
