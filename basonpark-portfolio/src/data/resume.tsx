@@ -433,6 +433,39 @@ export const DATA = {
   ],
   art: [
     {
+      imageUrl: "/art/bathroombreak.png",
+      title: "Bathroom Break",
+      year: 2025,
+      dimensions: "73 x 61 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+
+    {
+      imageUrl: "/art/redflag.png",
+      title: "Red Flag",
+      year: 2025,
+      dimensions: "73 x 61 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/thelastpiece.png",
+      title: "The Last Piece",
+      year: 2025,
+      dimensions: "65 x 53 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/theunusualsuspects.png",
+      title: "The Unusual Suspects",
+      year: 2025,
+      dimensions: "116 x 91 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
       imageUrl: "/art/tropfuneral.jpg",
       title: "Tropical Funeral",
       year: 2025,
@@ -448,7 +481,22 @@ export const DATA = {
       medium: "Oil on canvas",
       description: "An exploration of color and shape interaction.",
     },
-
+    {
+      imageUrl: "/art/Thatsagoodquestion.png",
+      title: "That's a Good Question",
+      year: 2025,
+      dimensions: "61 x 73 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/firstdate.png",
+      title: "First Date",
+      year: 2025,
+      dimensions: "53 x 65 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
     {
       imageUrl: "/art/templetempo.jpeg",
       title: "Temple Tempo",
