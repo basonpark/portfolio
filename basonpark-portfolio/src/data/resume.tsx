@@ -433,6 +433,24 @@ export const DATA = {
   ],
   art: [
     {
+      imageUrl: "/art/graduationoflostsoulss.jpg",
+      title: "Graduation of Lost Souls",
+      year: 2025,
+      dimensions: "162 x 130 cm",
+      medium: "Oil on canvas",
+      description:
+        "A complex, surrealist composition exploring interconnectedness through a dreamlike landscape of faces and figures.",
+    },
+    {
+      imageUrl: "/art/thetradeoff.JPG",
+      title: "The Tradeoff",
+      year: 2025,
+      dimensions: "61 x 73 cm",
+      medium: "Oil on canvas",
+      description:
+        "Five anthropomorphic figures emerging from a hand, sharing wine in a moment of camaraderie.",
+    },
+    {
       imageUrl: "/art/thelastpiece.png",
       title: "The Last Piece",
       year: 2025,
