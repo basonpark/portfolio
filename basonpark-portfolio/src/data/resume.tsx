@@ -433,6 +433,15 @@ export const DATA = {
   ],
   art: [
     {
+      imageUrl: "/art/emergencylanding.png",
+      title: "Emergency Landing",
+      year: 2025,
+      dimensions: "130 x 162 cm",
+      medium: "Oil on canvas",
+      description:
+        "A surrealist portrayal of humanity in crisis, depicting the chaos and diverse reactions of passengers during an emergency landing. The crowded airplane interior becomes a microcosm of human emotion—fear, prayer, humor, and acceptance—all coexisting in a single moment of shared vulnerability.",
+    },
+    {
       imageUrl: "/art/graduationoflostsoulss.jpg",
       title: "Graduation of Lost Souls",
       year: 2025,
