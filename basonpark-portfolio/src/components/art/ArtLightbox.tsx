@@ -2,6 +2,7 @@
 
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 
 type ArtItem = {
   imageUrl: string;
@@ -55,9 +56,10 @@ export function ArtLightbox({
               <button
                 type="button"
                 onClick={onClose}
-                className="verona-serial ml-4 rounded-md bg-white/10 px-3 py-2 text-sm text-white hover:bg-white/20"
+                aria-label="Close"
+                className="ml-4 inline-flex items-center justify-center rounded-md bg-white/10 p-2 text-white hover:bg-white/20"
               >
-                Close (Esc)
+                <X className="h-5 w-5" />
               </button>
             </div>
 
