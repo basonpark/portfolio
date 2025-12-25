@@ -135,7 +135,8 @@ export default function ArtPage() {
             <button
               type="button"
               onClick={() => setActiveIndex(index)}
-              className="relative mb-4 h-[78vh] w-full max-w-6xl rounded-lg bg-white transition focus:outline-none focus:ring-2 focus:ring-black/20"
+              // Wider max width makes horizontal pieces feel much larger on desktop.
+              className="relative mb-4 h-[82vh] w-full max-w-7xl xl:max-w-[1400px] rounded-lg bg-white transition focus:outline-none focus:ring-2 focus:ring-black/20"
               aria-label={`Open ${artItem.title} in full screen`}
             >
               {/* NOTE:
