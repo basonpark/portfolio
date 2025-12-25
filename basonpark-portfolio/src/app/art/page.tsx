@@ -134,7 +134,7 @@ export default function ArtPage() {
             <button
               type="button"
               onClick={() => setActiveIndex(index)}
-              className="relative mb-4 h-[78vh] w-full max-w-6xl rounded-lg border border-black/10 bg-white shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-black/20"
+              className="relative mb-4 h-[78vh] w-full max-w-6xl rounded-lg bg-white transition focus:outline-none focus:ring-2 focus:ring-black/20"
               aria-label={`Open ${artItem.title} in full screen`}
             >
               {/* NOTE:
@@ -151,10 +151,10 @@ export default function ArtPage() {
             </button>
             {/* Text container: Reduced top margin */}
             <div className="text-center w-full max-w-xl mt-2 p-3 md:p-4 rounded-lg">
-              <h3 className="mb-1 text-xl md:text-2xl font-semibold text-slate-900">
+              <h3 className="verona-serial-bold mb-1 text-xl md:text-2xl text-slate-900">
                 {artItem.title}
               </h3>
-              <p className="text-sm md:text-base text-slate-600">
+              <p className="verona-serial text-sm md:text-base text-slate-600">
                 {artItem.year} | {artItem.medium} | {artItem.dimensions}
               </p>
               {/* Description can be re-added here if needed */}
@@ -178,17 +178,17 @@ export default function ArtPage() {
           >
             <div className="flex items-center justify-between pb-3 text-white">
               <div className="min-w-0">
-                <div className="truncate text-lg font-semibold">
+                <div className="verona-serial-bold truncate text-lg">
                   {activeArt.title}
                 </div>
-                <div className="truncate text-sm text-white/80">
+                <div className="verona-serial truncate text-sm text-white/80">
                   {activeArt.year} · {activeArt.medium} · {activeArt.dimensions}
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveIndex(null)}
-                className="ml-4 rounded-md bg-white/10 px-3 py-2 text-sm font-medium text-white hover:bg-white/20"
+                className="verona-serial ml-4 rounded-md bg-white/10 px-3 py-2 text-sm text-white hover:bg-white/20"
               >
                 Close (Esc)
               </button>
