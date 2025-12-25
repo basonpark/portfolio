@@ -51,7 +51,8 @@ export default function ArtPage() {
     // Cleanup function
     return () => {
       // Kill the scroll trigger instances
-      if (snapTrigger) { // Check if snapTrigger exists before killing
+      if (snapTrigger) {
+        // Check if snapTrigger exists before killing
         snapTrigger.kill();
       }
       panelAnimations.forEach((trigger) => trigger.kill()); // Kill individual animations
@@ -91,9 +92,6 @@ export default function ArtPage() {
           keepers of the funk
         </motion.h1>
         <p className="text-xl verona-serial-bold text-gray-600">
-          some works for sale
-        </p>
-        <p className="text-xs verona-serial-bold text-gray-500">
           basonpark@gmail.com
         </p>
       </div>
