@@ -5,6 +5,7 @@ import { DATA } from "@/data/resume";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion"; // Import Framer Motion
+import { ArtLightbox } from "@/components/art/ArtLightbox";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -162,48 +163,7 @@ export default function ArtPage() {
           </div>
         ))}
       </div>
-
-      {/* Lightbox */}
-      {activeArt && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 p-4 md:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeArt.title} preview`}
-          onClick={() => setActiveIndex(null)}
-        >
-          <div
-            className="mx-auto flex h-full max-w-6xl flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between pb-3 text-white">
-              <div className="min-w-0">
-                <div className="verona-serial-bold truncate text-lg">
-                  {activeArt.title}
-                </div>
-                <div className="verona-serial truncate text-sm text-white/80">
-                  {activeArt.year} · {activeArt.medium} · {activeArt.dimensions}
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveIndex(null)}
-                className="verona-serial ml-4 rounded-md bg-white/10 px-3 py-2 text-sm text-white hover:bg-white/20"
-              >
-                Close (Esc)
-              </button>
-            </div>
-
-            <div className="relative flex-1 rounded-lg bg-black/30 p-2">
-              <img
-                src={activeArt.imageUrl}
-                alt={activeArt.title}
-                className="h-full w-full object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      <ArtLightbox art={activeArt} onClose={() => setActiveIndex(null)} />
     </div>
   );
 }
