@@ -433,7 +433,8 @@ export const DATA = {
   ],
   art: [
     {
-      imageUrl: "/art/emergencylanding.png",
+      // NOTE: Using the JPEG variant for better performance/reliability in production.
+      imageUrl: "/art/emerlanding.jpeg",
       title: "Emergency Landing",
       year: 2025,
       dimensions: "130 x 162 cm",

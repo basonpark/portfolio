@@ -1,6 +1,6 @@
 "use client"; // Needed for useEffect and GSAP animations
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { DATA } from "@/data/resume";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,6 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ArtPage() {
   const mainContainerRef = useRef<HTMLDivElement>(null);
   const panelsContainerRef = useRef<HTMLDivElement>(null); // Ref for the panels container
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const activeArt = useMemo(
+    () => (activeIndex === null ? null : DATA.art[activeIndex]),
+    [activeIndex]
+  );
 
   useEffect(() => {
     const mainEl = mainContainerRef.current;
@@ -27,8 +32,8 @@ export default function ArtPage() {
     const body = document.body;
     const originalBodyBg = body.style.background; // Store original background style
 
-    // Apply new gradient background to body
-    body.style.background = "linear-gradient(to bottom, #abb29d, #79806d)";
+    // White background for a cleaner portfolio look.
+    body.style.background = "#ffffff";
 
     // --- GSAP Scroll Snap Logic ---
     const snapTrigger = ScrollTrigger.create({
@@ -62,8 +67,29 @@ export default function ArtPage() {
     };
   }, []);
 
+  // Lightbox behavior: close on Escape and prevent background scrolling.
+  useEffect(() => {
+    const body = document.body;
+    const prevOverflow = body.style.overflow;
+
+    if (activeIndex !== null) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = prevOverflow;
+    }
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveIndex(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [activeIndex]);
+
   return (
-    <div ref={mainContainerRef} className="w-full">
+    <div ref={mainContainerRef} className="w-full bg-white">
       <style jsx global>{`
         /* Apply Verona Serial to all specific elements with these classes */
         .verona-serial {
@@ -102,10 +128,15 @@ export default function ArtPage() {
           <div
             key={index}
             // Panel takes full viewport height, centers content.
-            className="art-panel flex h-screen w-full flex-col items-center justify-center p-6"
+            className="art-panel flex h-screen w-full flex-col items-center justify-center p-6 bg-white"
           >
             {/* Image container: Increased height */}
-            <div className="relative mb-4 h-3/4 w-full max-w-4xl">
+            <button
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className="relative mb-4 h-[78vh] w-full max-w-6xl rounded-lg border border-black/10 bg-white shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-black/20"
+              aria-label={`Open ${artItem.title} in full screen`}
+            >
               {/* NOTE:
                * These source images are large (multi‑MB). next/image optimization can fail on some hosts
                * (timeouts/limits), causing images to render locally but not in production.
@@ -115,15 +146,15 @@ export default function ArtPage() {
                 src={artItem.imageUrl}
                 alt={artItem.title}
                 loading={index < 2 ? "eager" : "lazy"}
-                className="h-full w-full rounded object-contain"
+                className="h-full w-full rounded-lg object-contain"
               />
-            </div>
+            </button>
             {/* Text container: Reduced top margin */}
-            <div className="text-center w-full max-w-lg mt-2 p-3 md:p-4 bg-card/50 backdrop-blur-sm rounded-lg shadow-md border border-border/30">
-              <h3 className="mb-1 text-xl md:text-2xl font-semibold text-card-foreground">
+            <div className="text-center w-full max-w-xl mt-2 p-3 md:p-4 rounded-lg">
+              <h3 className="mb-1 text-xl md:text-2xl font-semibold text-slate-900">
                 {artItem.title}
               </h3>
-              <p className="text-sm md:text-base text-muted-foreground">
+              <p className="text-sm md:text-base text-slate-600">
                 {artItem.year} | {artItem.medium} | {artItem.dimensions}
               </p>
               {/* Description can be re-added here if needed */}
@@ -131,6 +162,48 @@ export default function ArtPage() {
           </div>
         ))}
       </div>
+
+      {/* Lightbox */}
+      {activeArt && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 p-4 md:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${activeArt.title} preview`}
+          onClick={() => setActiveIndex(null)}
+        >
+          <div
+            className="mx-auto flex h-full max-w-6xl flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between pb-3 text-white">
+              <div className="min-w-0">
+                <div className="truncate text-lg font-semibold">
+                  {activeArt.title}
+                </div>
+                <div className="truncate text-sm text-white/80">
+                  {activeArt.year} · {activeArt.medium} · {activeArt.dimensions}
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveIndex(null)}
+                className="ml-4 rounded-md bg-white/10 px-3 py-2 text-sm font-medium text-white hover:bg-white/20"
+              >
+                Close (Esc)
+              </button>
+            </div>
+
+            <div className="relative flex-1 rounded-lg bg-black/30 p-2">
+              <img
+                src={activeArt.imageUrl}
+                alt={activeArt.title}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
