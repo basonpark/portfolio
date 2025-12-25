@@ -82,6 +82,20 @@ export const DATA = {
 
   work: [
     {
+      company: "Meritus",
+      href: "",
+      badges: [],
+      location: "",
+      title: "Director of Consulting",
+      // TODO: Add the logo file at `public/meritus.png`
+      // (you can save the provided logo image as `basonpark-portfolio/public/meritus.png`)
+      logoUrl: "/meritus.png",
+      start: "June 2025",
+      end: "Present",
+      description:
+        "Director of Consulting at Meritus.",
+    },
+    {
       company: "Crimson Education",
       href: "https://www.crimsoneducation.org/",
       badges: [],
