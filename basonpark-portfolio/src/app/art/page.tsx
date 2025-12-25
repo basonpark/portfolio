@@ -1,11 +1,9 @@
 "use client"; // Needed for useEffect and GSAP animations
 
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
 import { DATA } from "@/data/resume";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion"; // Import Framer Motion
 
 // Register ScrollTrigger plugin
@@ -110,14 +108,16 @@ export default function ArtPage() {
           >
             {/* Image container: Increased height */}
             <div className="relative mb-4 h-3/4 w-full max-w-4xl">
-              <Image
+              {/* NOTE:
+               * These source images are large (multi‑MB). next/image optimization can fail on some hosts
+               * (timeouts/limits), causing images to render locally but not in production.
+               * Serving directly from /public avoids the optimizer entirely.
+               */}
+              <img
                 src={artItem.imageUrl}
                 alt={artItem.title}
-                fill
-                style={{ objectFit: "contain" }}
-                className="rounded"
-                priority={index < 2}
-                sizes="(max-width: 1024px) 90vw, 80vw" // Adjusted sizes
+                loading={index < 2 ? "eager" : "lazy"}
+                className="h-full w-full rounded object-contain"
               />
             </div>
             {/* Text container: Reduced top margin */}
