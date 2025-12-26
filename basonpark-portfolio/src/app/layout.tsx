@@ -53,9 +53,9 @@ export const metadata: Metadata = {
 
 const navItems = [
   { name: "Home", url: "/", iconName: "Home" },
+  { name: "Art", url: "/art", iconName: "Paintbrush" },
   { name: "Projects", url: "/projects", iconName: "Flame" },
   { name: "Quotes", url: "/quotes", iconName: "Quote" },
-  { name: "Art", url: "/art", iconName: "Paintbrush" },
 ];
 
 export default function RootLayout({

@@ -114,13 +114,10 @@ export default function ArtPage() {
             mass: 2, // Affects overshoot
             delay: 0.1, // Small delay before starting
           }}
-          className="verona-serial-bold text-4xl sm:text-5xl md:text-6xl text-slate-800"
+          className="verona-serial-bold text-2xl sm:text-4xl md:text-5xl text-slate-800"
         >
           keepers of the funk
         </motion.h1>
-        <p className="text-xl verona-serial-bold text-gray-600">
-          basonpark@gmail.com
-        </p>
       </div>
 
       {/* Panels Container - This will be the trigger for snapping */}

@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description: "It's like Jason with a B. Welcome to my mindspace. ",
   summary:
-    "This specimen was born in Japan and raised in South Korea. He studied computer science in college, but he forgot some of the algorithms when he joined the Korean military. To spice things up, he applied to become a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's least developed country gave him a mild domain expansion. After graduating, he decided to try out a few more cultures, particularly those in South America and Europe. He's currently building AI tools that help us discover hidden thought patterns and strengthen the power of human intuition.",
+    "This specimen was born in Japan and raised in South Korea. He studied computer science and business management in college. During the military, served as a peacekeeper in South Sudan. The sudden transition from coffee chats and cocktail parties in NYC to mediating tribal conflict in the world's least developed country expanded his worldview. After graduating, he decided to explore a few more cultures, particularly those in South America and Europe. He's currently painting and building AI tools that help us discover hidden thought patterns and strengthen the power of human intuition.",
   avatarUrl: "/basonpark.png",
 
   skills: [
@@ -87,13 +87,10 @@ export const DATA = {
       badges: [],
       location: "",
       title: "Director of Consulting",
-      // TODO: Add the logo file at `public/meritus.png`
-      // (you can save the provided logo image as `basonpark-portfolio/public/meritus.png`)
       logoUrl: "/meritus.png",
       start: "June 2025",
       end: "Present",
-      description:
-        "Director of Consulting at Meritus.",
+      description: "Director of Consulting at Meritus.",
     },
     {
       company: "Crimson Education",
