@@ -86,7 +86,7 @@ export const DATA = {
       href: "",
       badges: [],
       location: "",
-      title: "Director of Consulting",
+      title: "Director of Strategy",
       logoUrl: "/meritus.png",
       start: "June 2025",
       end: "Present",
@@ -444,6 +444,39 @@ export const DATA = {
   ],
   art: [
     {
+      imageUrl: "/art/unoriginalsin.jpg",
+      title: "Unoriginal Sin",
+      year: 2026,
+      dimensions: "117 x 91 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/Auberman.jpg",
+      title: "Uber Man",
+      year: 2026,
+      dimensions: "72 x 91 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/Amiraclemorning.jpg",
+      title: "Miracle Morning",
+      year: 2026,
+      dimensions: "91 x 72 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+    {
+      imageUrl: "/art/Abusinesscasual.jpg",
+      title: "Business Casual",
+      year: 2026,
+      dimensions: "91 x 117 cm",
+      medium: "Oil on canvas",
+      description: "Placeholder description.",
+    },
+
+    {
       // NOTE: Using the JPEG variant for better performance/reliability in production.
       imageUrl: "/art/emerlanding.jpeg",
       title: "Emergency Landing",
@@ -453,6 +486,7 @@ export const DATA = {
       description:
         "A surrealist portrayal of humanity in crisis, depicting the chaos and diverse reactions of passengers during an emergency landing. The crowded airplane interior becomes a microcosm of human emotion—fear, prayer, humor, and acceptance—all coexisting in a single moment of shared vulnerability.",
     },
+    
     {
       imageUrl: "/art/graduationoflostsoulss.jpg",
       title: "Graduation of Lost Souls",

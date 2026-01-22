@@ -274,7 +274,8 @@ export default function Page() {
                     href={work.href}
                     badges={work.badges}
                     period={`${work.start} - ${work.end ?? "Present"}`}
-                    description={work.description}
+                    // Hide long descriptions on the website (keep the data for later if needed).
+                    description={undefined}
                   />
                 </SlideFadeIn>
               ))}
